@@ -1,0 +1,74 @@
+i want to fin tune the model videoLLM-online to detect violence in another dataset called Mola Dataset.
+i have forked the authors repo of the model.
+I want you to analyze all the files and tell me which files does what so i can know what i need to change or run to fine tune with my dataset. and know how my dataset should look like in terms of annotations so that i can train with it
+
+
+Entrypoints
+
+train.py builds model/tokenizer, concatenates datasets from --train_datasets, sets collator/metrics, and fine-tunes with LoRA via TrainerWithGenToEval; saves model and runs eval on each eval dataset.
+evaluate.py loads model/tokenizer (no training) and runs evaluation on datasets from --eval_datasets.
+dataloader.py small sanity script to inspect tokenization/label masks and metric computation.
+Model Stack (models/)
+
+arguments_live.py defines training args (live version, system prompt, datasets, fps/resolution, LoRA hyperparams, max frames, etc.). live1+ (default) uses 1+3×3 spatial tokens per frame (10 tokens), comma interval tokens, max 10-min streams at 2 fps.
+configuration_live.py adds vision/streaming fields to configs.
+tokenization_live.py adds vision placeholder token <v>, sets chat template with [<v>,<v>,…] stream slots, computes learnable ranges for losses, and patches tokenizer with helper get_learn_ranges.
+vision_live.py builds vision encoder (SigLIP/CLIP) and encodes frames into CLS + pooled spatial tokens.
+modeling_live.py provides LiveMixin (joint embedding of text+frames, streaming eval metric), LoRA wiring, and build helper build_live. Streaming metric returns LM perplexity, frame timing error, fluency, LM correctness.
+models/live_llama/* wraps Llama into LiveLlamaForCausalLM with connector MLP and custom loss weighting (stream tokens vs language). build_live_llama is the default builder.
+trainer_with_gen2eval.py custom Trainer prediction_step to call dataset-specified evaluator (generate, generate_after_embed, or stream_evaluate) with any evaluation_kwargs.
+Data Pipeline (data/)
+
+data_collator.py tokenizes chat text, builds labels only on ranges marked learnable (assistant responses and selected stream placeholders), stitches frame embeddings, and keeps sample_idxs/evaluation_kwargs.
+stream.py mixin used by all datasets: loads frame embeddings from load_ranges (dict of path -> range), applies optional augmentation, prepends system prompt, applies chat template, and returns text, frames, learn ranges.
+utils.py utilities for video sampling/encoding (ffmpeg helper, distributed encoding to .pt features), IoU/time rounding, simple dict .to.
+Datasets are constructed via __init__.py helpers: build_concat_train_dataset concatenates multiple datasets; build_eval_dataset_dict returns name->dataset; get_compute_metrics_dict wraps dataset compute_metrics.
+Built-in Datasets (what each file does)
+
+Ego4D narration: narration.py builds streaming narration pairs from Ego4D narrations; refined version uses pre-refined text; eval uses stream_evaluate.
+Ego4D live chat: livechat.py uses synthetic streaming dialogues for GoalStep; eval via text generation.
+Ego4D long-term action forecasting: lta.py prepares input-action windows to predict next 20 actions; eval parses generations into verb/noun IDs and computes AUED.
+Ego4D NLQ streaming grounding: nlq.py creates streams with “start/end” signals for query segments; eval via stream_evaluate.
+COIN benchmarks: benchmarks.py + coin.py cover action classification (step, next, task), short procedure prediction (procedure, taskprocedure); eval via fuzzy string matching accuracy.
+Robustness: robustness.py tiny synthetic set to handle empty/noisy frames.
+Each dataset sets evaluation_kwargs to tell Trainer which evaluator to call and, for eval sets, adds add_generation_prompt=False/True to control labels on assistant outputs.
+Preprocessing (data/preprocess/)
+
+ffmpeg.py samples frames to 2 fps, 384 px with padding (outputs *_2fps_384 dir).
+encode.py runs SigLIP/CLIP to turn frames into torch tensors saved as .pt (outputs *_2fps_384_1+3x3_google--siglip-large-patch16-384), with optional bf16.
+ego4d_narration_refinement.py refines narration text using an LLM.
+ego4d_goalstep_livechat_generation.py synthesizes livechat dialogues from Ego4D GoalStep annotations.
+README.md documents the 2-step frame sampling + encoding and narration refinement commands.
+Training/Eval Scripts (scripts/)
+
+Example launchers: live1+.sh (narration+goalstep+robustness mix), live1+.sh (COIN benchmarks), scripts/ego4d/narration/*, scripts/ego4d/lta/*, scripts/ego4d/nlq/*. Use --train_datasets/--eval_datasets strings that match builder names (e.g., ego4d_refined_narration_stream_train, coin_step_test).
+Deepspeed configs under *.json (zero1/2/3 variants).
+Demo/Inference
+
+app.py gradio UI; cli.py CLI; both load checkpoints via --resume_from_checkpoint.
+inference.py shows streaming inference loop: loads vision inside the model, feeds frame embeddings and user queries, uses greedy generation with interval tokens.
+Static website assets in webpage/ and index.html for promo only.
+Dataset/Annotation Shape for Mola (violence detection)
+
+Videos must be preprocessed the same way: place raw videos under a root (e.g., datasets/mola/videos), run python -m data.preprocess.ffmpeg --frame_fps 2 --frame_resolution 384 --video_dir datasets/mola/videos then python -m data.preprocess.encode --video_dir datasets/mola/videos_2fps_384 --vision_pretrained google/siglip-large-patch16-384 --embed_mark 2fps_384_1+3x3 to produce *.pt. Metadata JSON will be auto-built on first load.
+Each training sample is a Python dict consumed by a dataset class derived from StreamMixIn:
+conversation: ordered list of messages with roles stream (with num_frames and optional learn flag/int), user, assistant (assistant messages should carry learn: True when you want loss). StreamMixIn will prepend the system prompt automatically.
+load_ranges: dict {path_to_pt: range(start_frame, end_frame)} describing which precomputed frames to load for this sample (frame indices at the chosen fps).
+Optional add_generation_prompt (False for training with labels, True for eval-only generations) and evaluation_kwargs (e.g., DictWithTo(evaluator='generate') or 'stream_evaluate').
+Minimal example for violence classification over a clip (pseudo-annotation you can serialize or construct on the fly in a new dataset class):
+{
+  "conversation": [
+    {"role": "user", "content": "Is there violence occurring in this video segment? Answer yes or no.", "learn": False},
+    {"role": "stream", "num_frames": 120, "learn": True},  # 60s at 2fps
+    {"role": "assistant", "content": "Yes, violent actions are present.", "learn": True}  # or "No, no violence observed."
+  ],
+  "load_ranges": {"datasets/mola/videos_2fps_384_1+3x3_google--siglip-large-patch16-384/vid123.pt": range(0,120)}
+}
+If you want streaming-style supervision (model should signal when violence starts), split the clip into multiple stream segments with interleaved assistant updates (e.g., “Violence begins now”, “Violence ended”) and set learn on those assistant turns; stream_evaluate can give timing metrics if you use it.
+Implement a new dataset builder (e.g., violence.py) inheriting StreamMixIn; set evaluation_kwargs to DictWithTo(evaluator='generate_after_embed', max_new_tokens=8, do_sample=False) and add a compute_metrics returning accuracy/F1 from decoded outputs. Register it via __init__.py and target it with --train_datasets mola_violence_train --eval_datasets mola_violence_val.
+Keep max_num_frames in args (default 1200 for live1+) in mind to truncate overly long streams; StreamMixIn.max_frames_clip will clip if needed.
+Next steps
+
+Prepare Mola videos → run ffmpeg.py and encode.py with your paths.
+Write a dataset builder translating Mola annotations into the conversation/load_ranges format above and plug its name into --train_datasets/--eval_datasets.
+Choose a script template under scripts/ (most similar to your task) and adjust train_datasets, learning rate, and output_dir; run train.py with deepspeed/torchrun as in those examples.

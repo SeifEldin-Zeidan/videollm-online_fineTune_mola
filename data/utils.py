@@ -48,6 +48,43 @@ def temporal_iou(region1, region2):
     iou = inter / union
     return iou
 
+
+def ffmpeg_once_from_frames(
+    src_path: str,
+    dst_path: str,
+    *,
+    input_fps: int = 30,   # FPS the frame sequence represents (timeline)
+    fps: int = None,       # output FPS (e.g. 2)
+    resolution: int = None,
+    pad: str = "#000000",
+    mode: str = "bicubic",
+    pattern: str = "img_%05d.jpg",
+):
+    os.makedirs(os.path.dirname(dst_path), exist_ok=True)
+
+    src_pattern = os.path.join(src_path, pattern)
+
+    command = [
+        "./ffmpeg/ffmpeg",
+        "-y",
+        "-sws_flags", mode,
+
+        # image sequence timing (must be before -i)
+        "-framerate", str(input_fps),
+        "-i", src_pattern,
+
+        "-an",
+        "-threads", "10",
+    ]
+
+    if fps is not None:
+        command += ['-r', str(fps)]
+    if resolution is not None:
+        command += ['-vf', f"scale='if(gt(iw\\,ih)\\,{resolution}\\,-2)':'if(gt(iw\\,ih)\\,-2\\,{resolution})',pad={resolution}:{resolution}:(ow-iw)/2:(oh-ih)/2:color='{pad}'"]
+    command += [dst_path]
+    subprocess.run(command, check=True)
+
+
 def ffmpeg_once(src_path: str, dst_path: str, *, fps: int = None, resolution: int = None, pad: str = '#000000', mode='bicubic'):
     os.makedirs(os.path.dirname(dst_path), exist_ok=True)
     command = [
@@ -82,6 +119,8 @@ def distributed_ffmpeg(*, src_root: str, fps: int = None, resolution: int = None
             continue
         dst_path = src_path.replace(src_root, dst_root)
         ffmpeg_once(src_path, dst_path, fps=fps, resolution=resolution, pad=pad, mode=mode)
+        
+
 
 def distributed_encode(*, src_root: str, vision_pretrained: str, vision_encode: callable, batch_size: int, embed_mark: str, save_bf16: bool = False, **kwargs):
     env = submitit.JobEnvironment()
