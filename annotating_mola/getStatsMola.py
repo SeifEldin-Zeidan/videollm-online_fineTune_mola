@@ -129,17 +129,18 @@ def getVideosData():
 
 
 
-
+videosToBeRemovedPath = Path(r"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\statsMola\videosToBeRemoved.json")
             
-        
-
-
-annotationFilePath = r"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\InCar_GT_annotations\recheck_INCAR2c_total_rawframes.txt"
-combineSegments(annotationPath=annotationFilePath)
-print(f"Length of dict = {len(videosDict)}")
-getVideosData()
-outDirSaveVideosInfo = r"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\statsMola"
-saveVideosInfo(outDir=outDirSaveVideosInfo)
+for annoType in ["total", "train", "val", "test"]:
+    annotationFilePath = rf"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\InCar_GT_annotations\recheck_INCAR2c_{annoType}_rawframes.txt"
+    combineSegments(annotationPath=annotationFilePath)
+    print(f"Length of dict = {len(videosDict)}")
+    getVideosData()
+    outDirSaveVideosInfo = rf"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\statsMola\{annoType}"
+    if not os.path.exists(outDirSaveVideosInfo):
+        os.makedirs(outDirSaveVideosInfo)
+    saveVideosInfo(outDir=outDirSaveVideosInfo)
+    shutil.copy2(videosToBeRemovedPath, Path(outDirSaveVideosInfo) / videosToBeRemovedPath.name) 
 
 
 

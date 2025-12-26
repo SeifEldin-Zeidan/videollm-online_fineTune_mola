@@ -1,0 +1,67 @@
+[
+  {
+    "videoName": "INCAR_20210422_Session1_C13_P7_P8_1_rgb",
+    "segments": [["NONVIOLENT/INCAR_20210422_Session1_C13_P7_P8_1_rgb_27", 440]]
+  },
+  {
+    "videoName": "INCAR_20210422_Session1_C13_P7_P8_2_rgb",
+    "segments": [["NONVIOLENT/INCAR_20210422_Session1_C13_P7_P8_2_rgb_28", 440]]
+  },
+  {
+    "videoName": "INCAR_20210506_Session_2_C9_P5_P8_2_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210506_Session_2_C9_P5_P8_2_rgb_1088", 591]
+    ]
+  },
+  {
+    "videoName": "INCAR_20210422_Session1_C10_P7_P8_1_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210422_Session1_C10_P7_P8_1_rgb_1", 441],
+      ["VIOLENT/INCAR_20210422_Session1_C10_P7_P8_1_rgb_2", 139]
+    ]
+  },
+  {
+    "videoName": "INCAR_20210422_Session1_C12_P7_P8_2_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210422_Session1_C12_P7_P8_2_rgb_19", 304],
+      ["VIOLENT/INCAR_20210422_Session1_C12_P7_P8_2_rgb_20", 232],
+      ["NONVIOLENT/INCAR_20210422_Session1_C12_P7_P8_2_rgb_21", 42]
+    ]
+  },
+  {
+    "videoName": "INCAR_20210427_Session_1_C8_P13_P14_2_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210427_Session_1_C8_P13_P14_2_rgb_415", 331],
+      ["VIOLENT/INCAR_20210427_Session_1_C8_P13_P14_2_rgb_416", 61],
+      ["VIOLENT/INCAR_20210427_Session_1_C8_P13_P14_2_rgb_418", 174]
+    ]
+  },
+  {
+    "videoName": "INCAR_20210422_Session2_C7_P7_P6_2_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210422_Session2_C7_P7_P6_2_rgb_122", 311],
+      ["VIOLENT/INCAR_20210422_Session2_C7_P7_P6_2_rgb_123", 264],
+      ["NONVIOLENT/INCAR_20210422_Session2_C7_P7_P6_2_rgb_264", 331],
+      ["VIOLENT/INCAR_20210422_Session2_C7_P7_P6_2_rgb_265", 244]
+    ]
+  },
+  {
+    "videoName": "INCAR_20210510_Session_1_C2_P1_P2_1_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210510_Session_1_C2_P1_P2_1_rgb_1411", 463],
+      ["VIOLENT/INCAR_20210510_Session_1_C2_P1_P2_1_rgb_1412", 115],
+      ["NONVIOLENT/INCAR_20210510_Session_1_C2_P1_P2_1_rgb_1413", 404],
+      ["VIOLENT/INCAR_20210510_Session_1_C2_P1_P2_1_rgb_1414", 174]
+    ]
+  },
+  {
+    "videoName": "INCAR_20210427_Session_1_C4_P13_P14_2_rgb",
+    "segments": [
+      ["NONVIOLENT/INCAR_20210427_Session_1_C4_P13_P14_2_rgb_371", 289],
+      ["VIOLENT/INCAR_20210427_Session_1_C4_P13_P14_2_rgb_372", 101],
+      ["NONVIOLENT/INCAR_20210427_Session_1_C4_P13_P14_2_rgb_373", 72],
+      ["VIOLENT/INCAR_20210427_Session_1_C4_P13_P14_2_rgb_374", 38],
+      ["NONVIOLENT/INCAR_20210427_Session_1_C4_P13_P14_2_rgb_375", 65]
+    ]
+  }
+]
