@@ -6,19 +6,19 @@ from collections import defaultdict
 from pathlib import Path
 import shutil
 
-videosDict = defaultdict(list)
+# videosDict = defaultdict(list)
 
-videosToSaveInfo = defaultdict(list)
+# videosToSaveInfo = defaultdict(list)
 
-segmentsSkipped = [] #probably all 1 segment violent videos, no annotation
+# segmentsSkipped = [] #probably all 1 segment violent videos, no annotation
 
-dataCombined = []
+# dataCombined = []
 
-videosDataDistrinutionViolence = defaultdict(int)
-videosDataDistrinutionNonViolence = defaultdict(int)
+# videosDataDistrinutionViolence = defaultdict(int)
+# videosDataDistrinutionNonViolence = defaultdict(int)
 
-violentVideosWithoutViolentSegment = []
-videosDataDistrinution_violentVideosWithoutViolentSegment = defaultdict(int)
+# violentVideosWithoutViolentSegment = []
+# videosDataDistrinution_violentVideosWithoutViolentSegment = defaultdict(int)
 
 def getScenario(video):
     m = re.search(r"_C(\d+)_", video)
@@ -132,6 +132,20 @@ def getVideosData():
 videosToBeRemovedPath = Path(r"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\statsMola\videosToBeRemoved.json")
             
 for annoType in ["total", "train", "val", "test"]:
+    videosDict = defaultdict(list)
+
+    videosToSaveInfo = defaultdict(list)
+
+    segmentsSkipped = [] #probably all 1 segment violent videos, no annotation
+
+    dataCombined = []
+
+    videosDataDistrinutionViolence = defaultdict(int)
+    videosDataDistrinutionNonViolence = defaultdict(int)
+
+    violentVideosWithoutViolentSegment = []
+    videosDataDistrinution_violentVideosWithoutViolentSegment = defaultdict(int)
+    
     annotationFilePath = rf"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\InCar_GT_annotations\recheck_INCAR2c_{annoType}_rawframes.txt"
     combineSegments(annotationPath=annotationFilePath)
     print(f"Length of dict = {len(videosDict)}")
@@ -140,7 +154,8 @@ for annoType in ["total", "train", "val", "test"]:
     if not os.path.exists(outDirSaveVideosInfo):
         os.makedirs(outDirSaveVideosInfo)
     saveVideosInfo(outDir=outDirSaveVideosInfo)
-    shutil.copy2(videosToBeRemovedPath, Path(outDirSaveVideosInfo) / videosToBeRemovedPath.name) 
+    shutil.copy2(videosToBeRemovedPath, Path(outDirSaveVideosInfo) / videosToBeRemovedPath.name)
+    print("=" *10) 
 
 
 
