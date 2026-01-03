@@ -1,5 +1,6 @@
 
 import json
+import logging
 import os
 from pathlib import Path
 import re
@@ -7,18 +8,18 @@ import shutil
 
 from collections import defaultdict
 
-
+import argparse
 
 # globalVideoCount = 1
 
-summary = defaultdict(int)
+# summary = defaultdict(int)
 
-videosToBeRemoved = []
+# videosToBeRemoved = []
 
 
-videosStats = defaultdict(list)
+# videosStats = defaultdict(list)
 
-annotations = []
+# annotations = []
 
 
 def getVideosToBeRemoved():
@@ -131,7 +132,7 @@ def merge_frames(segment_list, input_dir, out_dir, start=1, digits=5, ext="jpg")
             print(f"numFrames copied = {i-1} & sum_numFrames = {sum_numFrames}")
             raise ValueError(f"NumFrames doesnt match the num frames from annotations for video {out_dir}")
     
-    print(f"\ncopied frames of video {out_dir.split("/")[-1]} with {len(segment_list)} segments")
+    print(f"\ncopied frames of video {out_dir.split('/')[-1]} with {len(segment_list)} segments")
     return sum_numFrames
 
 def sort_segments_by_trailing_number(segments):
@@ -301,115 +302,92 @@ def handleSegments(inputDir_root, outDir_root, data):
             
 
         
+def saveAnnotations(annotations, outDir_annotationFile):
+    with open(outDir_annotationFile, "w", encoding="utf-8") as f:
+        json.dump(annotations, f, indent=4, ensure_ascii=False)
+
+    print(f"Saved annotations in {outDir_annotationFile}...")
+
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--type", type=str, required=True, help="Which annotation file to run.")
+args = parser.parse_args()
+
+# for annoType in ["total", "train", "val", "test"]:
+for annoType in [args.type]:
+
+    logging.info(f"Combining for {annoType}")
+
+    summary = defaultdict(int)
+
+    videosToBeRemoved = []
+
+
+    videosStats = defaultdict(list)
+
+    annotations = []
 
 
 
 
-# def handleViolent2Segments(inputDir, outRoot, data):
-#     global globalVideoCount, annotations
+    # statsDir = rf"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\statsMola\{annoType}"
+    statsDir = f"/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/annotating_mola/statsMola/{annoType}"
+    loadStats(statsDir=statsDir)
+    print(f"loaded {len(videosStats)} stat files")
+    for i, (statFile, _) in enumerate(videosStats.items(), start=1):
+        print(f"{i}. {statFile}")
 
+    getVideosToBeRemoved()
+                
 
+    # inputDir_root = r"C:\Users\szizo\Desktop\testCombine\rawframes"
+    inputDir_root = "/netscratch/zeidan/mola_split_mmaction2/InCar_GT_annotations/rawframes"
 
-#     for i, video in enumerate(data, start=1):
-#         videoName = video["videoName"]
-#         segmentList = video["segments"]
-#         segment1, segment2 = segmentList[0], segmentList[1]
+    # outDir_root = r"C:\Users\szizo\Desktop\testCombine\merged"
+    outDir_base = "/netscratch/zeidan/mola_segments_combined_ftVLLMOnline"
+    outDir_root = os.path.join(outDir_base, "videos")
 
-#         segment1_name, segment1_numFrames = segment1[0], segment1[1]
-#         segment2_name, segment2_numFrames = segment2[0], segment2[1]
+    outDir_annotations = os.path.join(outDir_base, "annotations")
 
+    os.makedirs(outDir_annotations, exist_ok=True)
+    os.makedirs(outDir_root, exist_ok=True)
 
-#         segment1_type = segment1_name.split("/")[0]
-#         segment2_type = segment2_name.split("/")[0]
+    # data = videosStats["testCombine"]
+    data = []
+    for fileName_stat, data_file in videosStats.items():
+        if fileName_stat in ["non-violent_vids", "violent_1", "violent_2", "violent_3", "violent_4", "violent_5"]:
+            data.extend(data_file)
+    print(type(data))
+    handleSegments(inputDir_root=inputDir_root, outDir_root=outDir_root, data=data)
 
+    for annotation in annotations:
+        if annotation["numFrames_violent_segment"] > 0 :
+            summary[f"Violent_videos"] += 1
+        else:
+            summary[f"Non-Violent_videos"] += 1
 
-#         if segment1_type == "VIOLENT" or segment2_type == "VIOLENT":
+    outDir_annotationFile = os.path.join(outDir_annotations, f"vLLMonline_mola_{annoType}.json")
 
+    saveAnnotations(annotations=annotations, outDir_annotationFile=outDir_annotationFile)
+    
+    summary_dir = os.path.join(outDir_base, "summary")
+    os.makedirs(summary_dir, exist_ok=True)
+    summary_filePath = os.path.join(summary_dir, f"summary_{annoType}.txt")
 
-#             if segment1_type == "VIOLENT":
-#                 segment_list = [segment2, segment1]
-#             elif segment2_type == "VIOLENT":
-#                 segment_list = [segment1, segment2]
+    with open(summary_filePath, "w", encoding="utf-8") as f:
+        f.write("="*10)
+        f.write(f"Summary of {annoType}")
+        f.write("="*10)
 
-#             newVideoPath =  f"VIOLENT/{videoName}_{globalVideoCount}"
-#             annotation = {
-#                 "videoName": newVideoPath,
-#                 "numFrames_nonViolent_segment": segment_list[0][1],
-#                 "numFrames_violent_segment": segment_list[1][1],
-#                 "numFrames_nonViolent_extraSegment":0,
-#             }
+        print("\n" + "=" * 10)
+        print(f"Printing Summary of {annoType} ...")
+        print("=" * 10, "\n")
+        for key, value in summary.items():
+            print(f"\n{key}: {value}")
+            f.write(f"\n{key}: {value}")
 
+        print("=" * 10, "\n")
 
-#         else:
-#             segmentNum_segment1 = int(segment1_name.split("_")[-1])
-#             segmentNum_segment2 = int(segment2_name.split("_")[-1])
-
-#             if segmentNum_segment1 < segmentNum_segment2:        
-#                 segment_list = [segment1, segment2]
-#             else:
-#                 segment_list = [segment2, segment1]
-
-#             newVideoPath =  f"NONVIOLENT/{videoName}_{globalVideoCount}"
-
-#             annotation = {
-#                 "videoName": newVideoPath,
-#                 "numFrames_nonViolent_segment": segment_list[0][1] + segment_list[1][1],
-#                 "numFrames_violent_segment": 0,
-#                 "numFrames_nonViolent_extraSegment":0,
-#             }
-
-
-#         out_dir = os.path.join(outRoot, newVideoPath)
-#         merge_frames(segment_list=segment_list, input_dir=inputDir, out_dir=out_dir)
-#         annotations["nonViolent"].append(annotation)
-
-#         globalVideoCount += 1
-
-#         print(f"Copied video with 2 segments {i} successfully.")
-
-#     print("Finished copying videos with 2 segments Videos")     
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-statsDir = r"C:\Users\szizo\Desktop\videoLLM-online_finetuning\videollm-online_fineTune_mola\annotating_mola\statsMola"
-loadStats(statsDir=statsDir)
-print(f"loaded {len(videosStats)} stat files")
-for i, (statFile, _) in enumerate(videosStats.items(), start=1):
-    print(f"{i}. {statFile}")
-
-getVideosToBeRemoved()
-            
-
-inputDir_root = r"C:\Users\szizo\Desktop\testCombine\rawframes"
-outDir_root = r"C:\Users\szizo\Desktop\testCombine\merged"
-
-data = videosStats["testCombine"]
-print(type(data))
-handleSegments(inputDir_root=inputDir_root, outDir_root=outDir_root, data=data)
-
-for annotation in annotations:
-    if annotation["numFrames_violent_segment"] > 0 :
-        summary[f"Violent_videos"] += 1
-    else:
-        summary[f"Non-Violent_videos"] += 1
 
     
-
-print("\n" + "=" * 10)
-print("Printing Summary ...")
-print("=" * 10, "\n")
-for key, value in summary.items():
-    print(f"\n{key}: {value}")
-
-print("=" * 10, "\n")
