@@ -2,10 +2,11 @@ from argparse import ArgumentParser
 import os
 import subprocess
 
-
-import os
-import subprocess
 import re
+
+from concurrent.futures import ProcessPoolExecutor, as_completed
+
+
 
 # def ffmpeg_once_from_frames(
 #     src_path: str,
@@ -140,7 +141,7 @@ def ffmpeg_once_frames(src_path: str, dst_path: str, fps: int, resolution: int, 
         "-framerate", str(input_fps),
         '-i', src_pattern,
         '-an',
-        '-threads', '10',
+        '-threads', '2',
     ]
     if fps is not None:
         command += ['-r', str(fps)]
@@ -159,7 +160,7 @@ def ffmpeg_once(src_path: str, dst_path: str, *, fps: int = None, resolution: in
         '-sws_flags', mode,
         '-i', src_path,
         '-an',
-        '-threads', '10',
+        '-threads', '2',
     ]
     if fps is not None:
         command += ['-r', str(fps)]
@@ -169,33 +170,72 @@ def ffmpeg_once(src_path: str, dst_path: str, *, fps: int = None, resolution: in
     # subprocess.run(command, check=True)
 
 
-parser = ArgumentParser()
-parser.add_argument("--input_frames_dir", type=str, default="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_train_val_test_split", required=False)
-parser.add_argument("--out_videos_dir", type=str, default="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled", required=False)
 
-args = parser.parse_args()
-
-# videosDir = r"C:\Users\szizo\Desktop\testCombine\merged"
-# outDir = r"C:\Users\szizo\Desktop\testCombine\merged_sampled_final"
-
-videosDir = args.input_frames_dir
-outDir = args.out_videos_dir
-
-os.makedirs(outDir, exist_ok=True)
-
-# logPath = os.path.join(outDir, "ffmpeg_showinfo.log")
-
-for folderName in os.listdir(videosDir):
-
+def process_one(folderName: str, videosDir: str, outDir: str):
     folder = os.path.join(videosDir, folderName)
-
     if not os.path.isdir(folder):
-        continue
+        return None
 
+    videoOutPath = os.path.join(outDir, f"{folderName}.mp4")
     print(f"\n!!!!!!!!!Sampling video {folderName}!!!!!!!!\n")
 
-    # embed_mark: str = '2fps_384_1+3x3'
+    ffmpeg_once_frames(src_path=folder, dst_path=videoOutPath, fps=2, resolution=384)
+    return folderName
 
-    videoOutDir = os.path.join(outDir, f"{folderName}.mp4")
 
-    ffmpeg_once_frames(src_path=folder, dst_path=videoOutDir, fps=2, resolution=384)
+
+if __name__ == "__main__":
+
+    parser = ArgumentParser()
+    parser.add_argument("--input_frames_dir", type=str, default="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_train_val_test_split", required=False)
+    parser.add_argument("--out_videos_dir", type=str, default="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled", required=False)
+
+    args = parser.parse_args()
+
+    # videosDir = r"C:\Users\szizo\Desktop\testCombine\merged"
+    # outDir = r"C:\Users\szizo\Desktop\testCombine\merged_sampled_final"
+
+    videosDir = args.input_frames_dir
+    outDir = args.out_videos_dir
+
+    os.makedirs(outDir, exist_ok=True)
+
+    # logPath = os.path.join(outDir, "ffmpeg_showinfo.log")
+
+
+
+    # for folderName in os.listdir(videosDir):
+
+    #     folder = os.path.join(videosDir, folderName)
+
+    #     if not os.path.isdir(folder):
+    #         continue
+
+    #     print(f"\n!!!!!!!!!Sampling video {folderName}!!!!!!!!\n")
+
+    #     # embed_mark: str = '2fps_384_1+3x3'
+
+    #     videoOutDir = os.path.join(outDir, f"{folderName}.mp4")
+
+    #     ffmpeg_once_frames(src_path=folder, dst_path=videoOutDir, fps=2, resolution=384)
+
+
+
+
+
+
+
+    folder_names = [n for n in os.listdir(videosDir) if os.path.isdir(os.path.join(videosDir, n))]
+
+    workers = min(8, (os.cpu_count() or 8))
+
+    with ProcessPoolExecutor(max_workers=workers) as ex:
+        futures = [ex.submit(process_one, name, videosDir, outDir) for name in folder_names]
+
+        for f in as_completed(futures):
+            try:
+                done = f.result()
+                if done is not None:
+                    print(f"Done: {done}")
+            except Exception as e:
+                print(f"FAILED: {e}")
