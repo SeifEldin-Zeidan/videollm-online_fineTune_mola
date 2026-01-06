@@ -5,10 +5,8 @@ from transformers import TrainingArguments
 class LiveTrainingArguments(TrainingArguments):
     live_version: str = 'live1+'
     system_prompt: str = (
-        "You are a vision-language model analyzing in-car surveillance video footage showing people seated "
-        "in the backseat of a vehicle. Respond only when you detect an instance of violence in the streaming "
-        "video, and respond with: 'Violence Detected!'. "
-        "Do not respond if no violence is present, unless the user explicitly asks a question."
+        "You are a vision-language model expert in analyzing surveillance videos. "
+        "You'll be given video footage stream of people seated in the backseat of a vehicle."
     )
     train_datasets: list[str] = None
     eval_datasets: list[str] = None

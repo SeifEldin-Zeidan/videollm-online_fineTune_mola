@@ -29,7 +29,7 @@ with gr.Blocks(title="VideoLLM-online", css=css) as demo:
         with gr.Column():
             gr_video = gr.Video(label="video stream", elem_id="gr_video", visible=True, sources=['upload'], autoplay=True)
             gr_examples = gr.Examples(
-                examples=[["demo/assets/cooking.mp4"], ["demo/assets/bicycle.mp4"], ["demo/assets/egoexo4d.mp4"]],
+                examples=[['demo/assets/C1_P1_P2_1_Se1.mp4'],['demo/assets/C1_P16_P15_2_Se2.mp4'],['demo/assets/C19_P15_P16_1_Se2.mp4'],["demo/assets/cooking.mp4"], ["demo/assets/bicycle.mp4"], ["demo/assets/egoexo4d.mp4"]],
                 inputs=gr_video,
                 outputs=gr_video,
                 label="Examples"
@@ -91,4 +91,4 @@ with gr.Blocks(title="VideoLLM-online", css=css) as demo:
         gr_liveinfer_queue_refresher.change(gr_liveinfer_queue_refresher_change, inputs=[gr_chat_interface.chatbot], outputs=[gr_chat_interface.chatbot])
     
     demo.queue()
-    demo.launch(share=False)
+    demo.launch(share=True)

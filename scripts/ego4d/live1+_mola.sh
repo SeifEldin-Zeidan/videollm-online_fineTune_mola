@@ -2,7 +2,7 @@
 
 VIDEOS_PT_ROOT="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_1+3x3_google--siglip-large-patch16-384"
 ANNOS_ROOT="/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/annotating_mola/annotations_fromCombineMola_withSampledNumFrames_segDescSummary"
-SYSTEM_PROMPT="You are a vision-language model analyzing in-car surveillance video footage showing people seated in the backseat of a vehicle. Respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present, unless the user explicitly asks a question."
+SYSTEM_PROMPT="You are a vision-language model expert in analyzing surveillance videos. You'll be given video footage stream of people seated in the backseat of a vehicle."
 
 
 deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
@@ -13,7 +13,7 @@ deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
     --annotations_root_dir "${ANNOS_ROOT}" \
     --system_prompt "${SYSTEM_PROMPT}" \
     --resume_from_checkpoint chenjoya/videollm-online-8b-v1plus \
-    --num_train_epochs 6 \
+    --num_train_epochs 10 \
     --per_device_train_batch_size 4 \
     --per_device_eval_batch_size 1 \
     --gradient_accumulation_steps 8 \
@@ -23,11 +23,11 @@ deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
     --save_strategy no \
     --learning_rate 0.00002 \
     --optim adamw_torch \
-    --lr_scheduler_type constant \
+    --lr_scheduler_type cosine \
     --warmup_ratio 0.05 \
     --logging_steps 10 \
     --dataloader_num_workers 6 \
     --bf16 True \
     --tf32 True \
     --report_to tensorboard \
-    --output_dir outputs/mola_live1+/train_2
+    --output_dir outputs/mola_live1+/train_5

@@ -10,8 +10,8 @@ logger = transformers.logging.get_logger('liveinfer')
 
 def main(liveinfer: LiveInfer):
     # src_video_path = 'demo/assets/C1_P1_P2_1_Se1.mp4'
-    src_video_path = 'demo/assets/C1_P16_P15_2_Se2.mp4'
-    # src_video_path = 'demo/assets/C19_P15_P16_1_Se2.mp4'
+    # src_video_path = 'demo/assets/C1_P16_P15_2_Se2.mp4'
+    src_video_path = 'demo/assets/C19_P15_P16_1_Se2.mp4'
     name, ext = os.path.splitext(src_video_path)
     ffmpeg_video_path = os.path.join('demo/assets/cache', name + f'_{liveinfer.frame_fps}fps_{liveinfer.frame_resolution}' + ext)
     save_history_path = src_video_path.replace('.mp4', '.json')
@@ -28,7 +28,10 @@ def main(liveinfer: LiveInfer):
     print(f"liveinfer.video_duration = {liveinfer.video_duration}")
 
     user_summary_query = "Based on the preceding video frames, determine whether any violent behavior is present. Respond in exactly the following structure describing what you have seen. Violence Detected: [Yes/No]\nDescription: [Description of the actions in the video]\nAttacker: [Whether the left or right passenger is doing the violence, if any; otherwise 'None']\nCategory: [Interaction type]."
-    liveinfer.input_query_stream(user_summary_query, video_time=liveinfer.video_duration-1)
+    violence_query = "Analyze the given surveilance video and respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present."
+
+    # liveinfer.input_query_stream(user_summary_query, video_time=liveinfer.video_duration-1)
+    liveinfer.input_query_stream(violence_query, video_time=0)
 
     # liveinfer.input_query_stream('Please narrate the video in real time.', video_time=0.0)
     # liveinfer.input_query_stream('Respond as soon as you detect a violence instance in the video', video_time=0.0)

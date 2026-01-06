@@ -79,6 +79,15 @@ class LiveInfer:
             if next_score[:,:,self.frame_token_interval_id] < self.frame_token_interval_threshold:
                 next_score[:,:,self.frame_token_interval_id].zero_()
             self.last_ids = next_score.argmax(dim=-1)
+
+            last_ids_token = self.tokenizer.convert_ids_to_tokens(self.last_ids)
+            token_interval_id_token = self.tokenizer.convert_ids_to_tokens(self.frame_token_interval_id)
+            print(f"self.last_ids = next_score.argmax(dim=-1) = {self.last_ids}, converted = {last_ids_token}")
+            print(f"frame_token_interval_threshold = {self.frame_token_interval_id}, converted = {token_interval_id_token}")
+
+            token_933 = self.tokenizer.convert_ids_to_tokens([933])
+            print(f"token id 933 is = {token_933}")
+
             if self.last_ids != self.frame_token_interval_id: 
                 return video_time, None
         return None, None
@@ -115,7 +124,7 @@ class LiveInfer:
         self.num_video_frames = self.video_tensor.size(0)
         self.video_duration = self.video_tensor.size(0) / self.frame_fps
         logger.warning(f'{video_path} -> {self.video_tensor.shape}, {self.frame_fps} FPS')
-        return self.num_video_frames
+        # return self.num_video_frames
 
     def __call__(self, ):
         while not self.frame_embeds_queue:

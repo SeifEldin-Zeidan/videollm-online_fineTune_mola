@@ -88,11 +88,15 @@ class NLQ_MOLA(StreamMixIn):
             #     )
 
             numFrames_restOfVideo = annotation["numFrames_sampled"] - numFrames_nonViolent_segment_converted
-           
+
+            conversation = [{'role': 'stream', 'num_frames': 1, 'learn': False},]
+
+            if add_query:
+                conversation += [{'role': 'user', 'content': violence_query}]
 
             if annotation["numFrames_violent_segment"] > 0: #Violent video
 
-                conversation = [
+                conversation += [
                         {'role': 'stream', 'num_frames': numFrames_nonViolent_segment_converted, 'learn': True},
                         {'role': 'assistant', 'content': assistant_detectViolent, 'learn': True},
                         {'role': 'stream', 'num_frames': numFrames_restOfVideo, 'learn': True},
@@ -112,7 +116,7 @@ class NLQ_MOLA(StreamMixIn):
 
             else: #Non-violent video
 
-                conversation = [
+                conversation += [
                         {'role': 'stream', 'num_frames': annotation["numFrames_sampled"], 'learn': True},
                     ]
             
@@ -146,9 +150,6 @@ class NLQ_MOLA(StreamMixIn):
             
             if not conversation:
                 continue
-
-            if add_query:
-                conversation = [{'role': 'user', 'content': violence_query}] + conversation
             
             videoName = annotation["videoName"]
 
