@@ -88,7 +88,7 @@ def ffmpeg_once_from_frames(
 def ffmpeg_once(src_path: str, dst_path: str, *, fps: int = None, resolution: int = None, pad: str = '#000000', mode='bicubic'):
     os.makedirs(os.path.dirname(dst_path), exist_ok=True)
     command = [
-        './ffmpeg/ffmpeg',
+        './data/preprocess/ffmpeg/ffmpeg',
         '-y',
         '-sws_flags', mode,
         '-i', src_path,

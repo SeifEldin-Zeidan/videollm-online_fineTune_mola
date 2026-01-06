@@ -11,6 +11,9 @@ logger = transformers.logging.get_logger('liveinfer')
 class LiveInfer:
     def __init__(self, ) -> None:
         args = parse_args()
+        # print("Args:\n")
+        # print(args)
+        
         self.model, self.tokenizer = build_model_and_tokenizer(is_training=False, set_vision_inside=True, **asdict(args))
         self.model.to('cuda')
         
@@ -101,7 +104,7 @@ class LiveInfer:
     def input_video_stream(self, video_time):
         frame_idx = int(video_time * self.frame_fps)
         if frame_idx > self.last_frame_idx:
-            ranger = range(self.last_frame_idx + 1, frame_idx + 1)
+            ranger = range(self.last_frame_idx + 1, frame_idx+1)
             frames_embeds = self.model.visual_embed(self.video_tensor[ranger]).split(self.frame_num_tokens)
             self.frame_embeds_queue.extend([(r / self.frame_fps, frame_embeds) for r, frame_embeds in zip(ranger, frames_embeds)])
         self.last_frame_idx = frame_idx
@@ -112,6 +115,7 @@ class LiveInfer:
         self.num_video_frames = self.video_tensor.size(0)
         self.video_duration = self.video_tensor.size(0) / self.frame_fps
         logger.warning(f'{video_path} -> {self.video_tensor.shape}, {self.frame_fps} FPS')
+        return self.num_video_frames
 
     def __call__(self, ):
         while not self.frame_embeds_queue:

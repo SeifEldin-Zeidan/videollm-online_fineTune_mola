@@ -9,7 +9,9 @@ logger = transformers.logging.get_logger('liveinfer')
 # python -m demo.cli --resume_from_checkpoint ... 
 
 def main(liveinfer: LiveInfer):
-    src_video_path = 'demo/assets/cooking.mp4'
+    # src_video_path = 'demo/assets/C1_P1_P2_1_Se1.mp4'
+    src_video_path = 'demo/assets/C1_P16_P15_2_Se2.mp4'
+    # src_video_path = 'demo/assets/C19_P15_P16_1_Se2.mp4'
     name, ext = os.path.splitext(src_video_path)
     ffmpeg_video_path = os.path.join('demo/assets/cache', name + f'_{liveinfer.frame_fps}fps_{liveinfer.frame_resolution}' + ext)
     save_history_path = src_video_path.replace('.mp4', '.json')
@@ -19,7 +21,17 @@ def main(liveinfer: LiveInfer):
         logger.warning(f'{src_video_path} -> {ffmpeg_video_path}, {liveinfer.frame_fps} FPS, {liveinfer.frame_resolution} Resolution')
     
     liveinfer.load_video(ffmpeg_video_path)
-    liveinfer.input_query_stream('Please narrate the video in real time.', video_time=0.0)
+    num_video_frames = liveinfer.num_video_frames
+
+    print(f"num_video_frames = {num_video_frames}!!!")
+    print(f"liveinfer.frame_fps = {liveinfer.frame_fps}")
+    print(f"liveinfer.video_duration = {liveinfer.video_duration}")
+
+    user_summary_query = "Based on the preceding video frames, determine whether any violent behavior is present. Respond in exactly the following structure describing what you have seen. Violence Detected: [Yes/No]\nDescription: [Description of the actions in the video]\nAttacker: [Whether the left or right passenger is doing the violence, if any; otherwise 'None']\nCategory: [Interaction type]."
+    liveinfer.input_query_stream(user_summary_query, video_time=liveinfer.video_duration-1)
+
+    # liveinfer.input_query_stream('Please narrate the video in real time.', video_time=0.0)
+    # liveinfer.input_query_stream('Respond as soon as you detect a violence instance in the video', video_time=0.0)
     # liveinfer.input_query_stream('Hi, who are you?', video_time=1.0)
     # liveinfer.input_query_stream('Yes, I want to check its safety.', video_time=3.0)
     # liveinfer.input_query_stream('No, I am going to install something to alert pedestrians to move aside. Could you guess what it is?', video_time=12.5)
@@ -27,7 +39,7 @@ def main(liveinfer: LiveInfer):
     timecosts = []
     pbar = tqdm.tqdm(total=liveinfer.num_video_frames, bar_format="{l_bar}{bar}| {n_fmt}/{total_fmt}{postfix}]")
     history = {'video_path': src_video_path, 'frame_fps': liveinfer.frame_fps, 'conversation': []} 
-    for i in range(100):
+    for i in range(num_video_frames):
         # liveinfer.frame_token_interval_threshold -= 0.00175 # decay
         start_time = time.time()
         liveinfer.input_video_stream(i / liveinfer.frame_fps)
@@ -45,7 +57,7 @@ def main(liveinfer: LiveInfer):
             print(response)
         if not query and not response:
             history['conversation'].append({'time': liveinfer.video_time, 'fps': fps, 'cost': timecosts[-1]})
-    json.dump(history, open(save_history_path, 'w'), indent=4)
+    json.dump(history, open(save_history_path, 'a'), indent=4)
     print(f'The conversation history has been saved to {save_history_path}.')
 
 if __name__ == '__main__':
