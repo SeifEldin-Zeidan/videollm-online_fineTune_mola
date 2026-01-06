@@ -200,16 +200,19 @@ def build_live(
     model = model_class.from_pretrained(llm_pretrained, config=config_class.from_pretrained(llm_pretrained, **kwargs), device_map='cpu', torch_dtype=torch_dtype, attn_implementation=attn_implementation)
     tokenizer = build_live_tokenizer_and_update_config(llm_pretrained, model.config)
     if is_training:
-        lora_config = LoraConfig(
-            r=lora_r,
-            lora_alpha=lora_alpha,
-            target_modules=lora_modules,
-            lora_dropout=0.05,
-            task_type="CAUSAL_LM",
-            modules_to_save=finetune_modules,
-            inference_mode=False,
-        )
-        model = get_peft_model(model, lora_config)
+        if resume_from_checkpoint:
+            model = PeftModel.from_pretrained(model, resume_from_checkpoint, is_trainable=True)
+        else:
+            lora_config = LoraConfig(
+                r=lora_r,
+                lora_alpha=lora_alpha,
+                target_modules=lora_modules,
+                lora_dropout=0.05,
+                task_type="CAUSAL_LM",
+                modules_to_save=finetune_modules,
+                inference_mode=False,
+            )
+            model = get_peft_model(model, lora_config)
         model.print_trainable_parameters()
     else:
         if resume_from_checkpoint:

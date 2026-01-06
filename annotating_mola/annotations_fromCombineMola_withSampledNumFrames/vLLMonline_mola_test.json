@@ -1,0 +1,2221 @@
+[
+    {
+        "videoName": "INCAR_20210427_Session_1_C13_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C13_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C13_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C13_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C14_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C14_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C14_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C14_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C15_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C15_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C15_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C15_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 436,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C16_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C16_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C16_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 436,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C16_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 434,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C17_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 438,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C17_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 434,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C17_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 434,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C17_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C18_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C18_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C18_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C18_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 421,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C19_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 437,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C19_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C19_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 433,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C19_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C20_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 435,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C20_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C20_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C20_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C13_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 428,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C13_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 438,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C13_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 429,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C13_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C14_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C14_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C14_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C14_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C15_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C15_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C15_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 427,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C15_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 433,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C16_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 429,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C16_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 428,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C16_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C16_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 435,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C17_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 433,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C17_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C17_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C17_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C18_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 433,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C18_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C18_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 427,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C18_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C19_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 435,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C19_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C19_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 428,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C19_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C20_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 428,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C20_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C20_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C20_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 434,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C13_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C13_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C13_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C13_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C14_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C14_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C14_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C14_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C15_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C15_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C15_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C15_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C16_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C16_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C16_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C16_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C17_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C17_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C17_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C17_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C18_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C18_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C18_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C18_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C19_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C19_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C19_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C19_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C20_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C20_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C20_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 437,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C20_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 438,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C13_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C13_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 591,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C13_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C13_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C14_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C14_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C14_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C14_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C15_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C15_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 436,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C15_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 438,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C15_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C16_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C16_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C16_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C16_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C17_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 436,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C17_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 438,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C17_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C17_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C18_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 428,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C18_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 437,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C18_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C18_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C19_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 440,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C19_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 429,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C19_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C19_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C20_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 437,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C20_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 427,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 30
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C20_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 439,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C20_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 435,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 31
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C10_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 309,
+        "numFrames_violent_segment": 271,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C10_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 383,
+        "numFrames_violent_segment": 206,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C10_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 395,
+        "numFrames_violent_segment": 196,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C10_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 422,
+        "numFrames_violent_segment": 168,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C11_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 413,
+        "numFrames_violent_segment": 177,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C11_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 360,
+        "numFrames_violent_segment": 231,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C11_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 339,
+        "numFrames_violent_segment": 243,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C11_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 393,
+        "numFrames_violent_segment": 178,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C12_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 473,
+        "numFrames_violent_segment": 117,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C12_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 371,
+        "numFrames_violent_segment": 220,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C12_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 443,
+        "numFrames_violent_segment": 148,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C12_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 364,
+        "numFrames_violent_segment": 227,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C1_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 278,
+        "numFrames_violent_segment": 313,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C1_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 261,
+        "numFrames_violent_segment": 325,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C1_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 305,
+        "numFrames_violent_segment": 285,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C1_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 282,
+        "numFrames_violent_segment": 299,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C2_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 504,
+        "numFrames_violent_segment": 83,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C2_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 390,
+        "numFrames_violent_segment": 190,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C2_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 393,
+        "numFrames_violent_segment": 194,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C2_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 406,
+        "numFrames_violent_segment": 183,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C3_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 315,
+        "numFrames_violent_segment": 271,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C3_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 158,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C3_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 339,
+        "numFrames_violent_segment": 246,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C3_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 359,
+        "numFrames_violent_segment": 232,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C4_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 459,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 32
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C5_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 525,
+        "numFrames_violent_segment": 58,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C5_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 526,
+        "numFrames_violent_segment": 50,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C5_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 466,
+        "numFrames_violent_segment": 111,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C6_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 147,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C6_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 396,
+        "numFrames_violent_segment": 181,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C6_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 389,
+        "numFrames_violent_segment": 185,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C6_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 361,
+        "numFrames_violent_segment": 201,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C7_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 367,
+        "numFrames_violent_segment": 197,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C7_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 372,
+        "numFrames_violent_segment": 203,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C7_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 347,
+        "numFrames_violent_segment": 226,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C7_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 334,
+        "numFrames_violent_segment": 233,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C8_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 366,
+        "numFrames_violent_segment": 213,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C8_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 425,
+        "numFrames_violent_segment": 153,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C8_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 283,
+        "numFrames_violent_segment": 292,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C9_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 218,
+        "numFrames_violent_segment": 372,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C9_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 186,
+        "numFrames_violent_segment": 405,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C9_P14_P13_1_rgb",
+        "numFrames_nonviolent_segment": 217,
+        "numFrames_violent_segment": 373,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C9_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 273,
+        "numFrames_violent_segment": 318,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C10_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 310,
+        "numFrames_violent_segment": 280,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C10_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 418,
+        "numFrames_violent_segment": 172,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C10_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 349,
+        "numFrames_violent_segment": 227,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C10_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 381,
+        "numFrames_violent_segment": 210,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C11_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 376,
+        "numFrames_violent_segment": 215,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C11_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 369,
+        "numFrames_violent_segment": 222,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C12_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 311,
+        "numFrames_violent_segment": 280,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C12_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 199,
+        "numFrames_violent_segment": 378,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C12_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 139,
+        "numFrames_violent_segment": 440,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C12_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 130,
+        "numFrames_violent_segment": 460,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C1_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 375,
+        "numFrames_violent_segment": 215,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C1_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 373,
+        "numFrames_violent_segment": 217,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C2_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 366,
+        "numFrames_violent_segment": 195,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C2_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 392,
+        "numFrames_violent_segment": 198,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C2_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 443,
+        "numFrames_violent_segment": 148,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C3_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 430,
+        "numFrames_violent_segment": 160,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C3_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 330,
+        "numFrames_violent_segment": 245,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C3_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 512,
+        "numFrames_violent_segment": 78,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C3_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 347,
+        "numFrames_violent_segment": 243,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C4_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 453,
+        "numFrames_violent_segment": 130,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C4_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 422,
+        "numFrames_violent_segment": 169,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C4_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 435,
+        "numFrames_violent_segment": 155,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C5_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 160,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C5_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 382,
+        "numFrames_violent_segment": 207,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C5_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 368,
+        "numFrames_violent_segment": 222,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C5_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 378,
+        "numFrames_violent_segment": 213,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C6_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 367,
+        "numFrames_violent_segment": 215,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C6_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 355,
+        "numFrames_violent_segment": 235,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C6_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 318,
+        "numFrames_violent_segment": 273,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C6_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 345,
+        "numFrames_violent_segment": 242,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C7_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 352,
+        "numFrames_violent_segment": 238,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C7_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 341,
+        "numFrames_violent_segment": 236,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C7_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 305,
+        "numFrames_violent_segment": 284,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C7_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 318,
+        "numFrames_violent_segment": 267,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C8_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 290,
+        "numFrames_violent_segment": 301,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C8_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 285,
+        "numFrames_violent_segment": 296,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C8_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 326,
+        "numFrames_violent_segment": 242,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C8_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 359,
+        "numFrames_violent_segment": 183,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 38
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C9_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 170,
+        "numFrames_violent_segment": 408,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C9_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 120,
+        "numFrames_violent_segment": 471,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C9_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 123,
+        "numFrames_violent_segment": 452,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C9_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 114,
+        "numFrames_violent_segment": 459,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C10_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 257,
+        "numFrames_violent_segment": 317,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C10_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 323,
+        "numFrames_violent_segment": 264,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C10_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 349,
+        "numFrames_violent_segment": 235,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C10_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 309,
+        "numFrames_violent_segment": 271,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C11_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 301,
+        "numFrames_violent_segment": 290,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C11_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 406,
+        "numFrames_violent_segment": 185,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C11_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 377,
+        "numFrames_violent_segment": 214,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C11_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 387,
+        "numFrames_violent_segment": 203,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C12_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 370,
+        "numFrames_violent_segment": 220,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C12_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 422,
+        "numFrames_violent_segment": 169,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C12_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 424,
+        "numFrames_violent_segment": 167,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C12_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 458,
+        "numFrames_violent_segment": 132,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C1_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 361,
+        "numFrames_violent_segment": 176,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 37
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C1_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 319,
+        "numFrames_violent_segment": 271,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C1_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 327,
+        "numFrames_violent_segment": 262,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C1_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 316,
+        "numFrames_violent_segment": 269,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C2_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 349,
+        "numFrames_violent_segment": 240,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C2_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 270,
+        "numFrames_violent_segment": 310,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C2_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 330,
+        "numFrames_violent_segment": 260,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C2_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 252,
+        "numFrames_violent_segment": 330,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C3_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 232,
+        "numFrames_violent_segment": 346,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C3_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 299,
+        "numFrames_violent_segment": 291,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C3_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 330,
+        "numFrames_violent_segment": 247,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C3_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 350,
+        "numFrames_violent_segment": 231,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C4_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 408,
+        "numFrames_violent_segment": 178,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C4_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 351,
+        "numFrames_violent_segment": 231,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C4_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 137,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C4_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 327,
+        "numFrames_violent_segment": 256,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C5_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 469,
+        "numFrames_violent_segment": 110,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C5_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 454,
+        "numFrames_violent_segment": 124,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C5_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 467,
+        "numFrames_violent_segment": 124,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C5_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 432,
+        "numFrames_violent_segment": 144,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C6_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 250,
+        "numFrames_violent_segment": 325,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C6_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 361,
+        "numFrames_violent_segment": 222,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C6_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 349,
+        "numFrames_violent_segment": 236,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C6_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 343,
+        "numFrames_violent_segment": 229,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C7_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 249,
+        "numFrames_violent_segment": 334,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C7_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 292,
+        "numFrames_violent_segment": 285,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C7_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 336,
+        "numFrames_violent_segment": 247,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C7_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 355,
+        "numFrames_violent_segment": 231,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C8_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 348,
+        "numFrames_violent_segment": 237,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C8_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 333,
+        "numFrames_violent_segment": 245,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C8_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 279,
+        "numFrames_violent_segment": 292,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C8_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 271,
+        "numFrames_violent_segment": 308,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C9_P14_P15_1_rgb",
+        "numFrames_nonviolent_segment": 228,
+        "numFrames_violent_segment": 358,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C9_P14_P15_2_rgb",
+        "numFrames_nonviolent_segment": 235,
+        "numFrames_violent_segment": 340,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C9_P15_P14_1_rgb",
+        "numFrames_nonviolent_segment": 273,
+        "numFrames_violent_segment": 306,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_1_C9_P15_P14_2_rgb",
+        "numFrames_nonviolent_segment": 272,
+        "numFrames_violent_segment": 304,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C10_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 280,
+        "numFrames_violent_segment": 311,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C10_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 359,
+        "numFrames_violent_segment": 232,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C10_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 419,
+        "numFrames_violent_segment": 157,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C11_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 368,
+        "numFrames_violent_segment": 222,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C11_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 326,
+        "numFrames_violent_segment": 264,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C11_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 361,
+        "numFrames_violent_segment": 229,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C11_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 373,
+        "numFrames_violent_segment": 218,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C12_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 344,
+        "numFrames_violent_segment": 247,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C12_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 387,
+        "numFrames_violent_segment": 204,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C12_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 253,
+        "numFrames_violent_segment": 338,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C12_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 270,
+        "numFrames_violent_segment": 321,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C1_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 323,
+        "numFrames_violent_segment": 266,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C1_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 304,
+        "numFrames_violent_segment": 286,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C1_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 289,
+        "numFrames_violent_segment": 301,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C1_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 297,
+        "numFrames_violent_segment": 294,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C2_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 383,
+        "numFrames_violent_segment": 207,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C2_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 320,
+        "numFrames_violent_segment": 267,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C2_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 492,
+        "numFrames_violent_segment": 99,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C2_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 441,
+        "numFrames_violent_segment": 137,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C3_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 363,
+        "numFrames_violent_segment": 227,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C3_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 371,
+        "numFrames_violent_segment": 205,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C3_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 351,
+        "numFrames_violent_segment": 240,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C4_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 516,
+        "numFrames_violent_segment": 74,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C4_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 435,
+        "numFrames_violent_segment": 148,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C4_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 431,
+        "numFrames_violent_segment": 159,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C4_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 443,
+        "numFrames_violent_segment": 148,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C5_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 458,
+        "numFrames_violent_segment": 129,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C5_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 422,
+        "numFrames_violent_segment": 168,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C5_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 444,
+        "numFrames_violent_segment": 141,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C6_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 340,
+        "numFrames_violent_segment": 251,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C6_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 353,
+        "numFrames_violent_segment": 237,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C6_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 341,
+        "numFrames_violent_segment": 249,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C6_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 284,
+        "numFrames_violent_segment": 306,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C7_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 320,
+        "numFrames_violent_segment": 262,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C7_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 288,
+        "numFrames_violent_segment": 302,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C7_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 321,
+        "numFrames_violent_segment": 257,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C7_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 281,
+        "numFrames_violent_segment": 303,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C8_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 294,
+        "numFrames_violent_segment": 275,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C8_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 325,
+        "numFrames_violent_segment": 266,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C8_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 381,
+        "numFrames_violent_segment": 204,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C8_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 320,
+        "numFrames_violent_segment": 257,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C9_P15_P16_1_rgb",
+        "numFrames_nonviolent_segment": 339,
+        "numFrames_violent_segment": 246,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C9_P15_P16_2_rgb",
+        "numFrames_nonviolent_segment": 341,
+        "numFrames_violent_segment": 234,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C9_P16_P15_1_rgb",
+        "numFrames_nonviolent_segment": 240,
+        "numFrames_violent_segment": 335,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210511_Session_2_C9_P16_P15_2_rgb",
+        "numFrames_nonviolent_segment": 261,
+        "numFrames_violent_segment": 320,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C4_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 289,
+        "numFrames_violent_segment": 276,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C4_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 337,
+        "numFrames_violent_segment": 96,
+        "numFrames_nonviolent_extraSegment": 142,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C4_P14_P13_2_rgb",
+        "numFrames_nonviolent_segment": 396,
+        "numFrames_violent_segment": 83,
+        "numFrames_nonviolent_extraSegment": 96,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C5_P13_P14_1_rgb",
+        "numFrames_nonviolent_segment": 344,
+        "numFrames_violent_segment": 58,
+        "numFrames_nonviolent_extraSegment": 177,
+        "numFrames_sampled": 40
+    },
+    {
+        "videoName": "INCAR_20210427_Session_1_C8_P13_P14_2_rgb",
+        "numFrames_nonviolent_segment": 331,
+        "numFrames_violent_segment": 235,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 39
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C11_P16_P13_1_rgb",
+        "numFrames_nonviolent_segment": 353,
+        "numFrames_violent_segment": 135,
+        "numFrames_nonviolent_extraSegment": 103,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C11_P16_P13_2_rgb",
+        "numFrames_nonviolent_segment": 345,
+        "numFrames_violent_segment": 90,
+        "numFrames_nonviolent_extraSegment": 156,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C1_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 371,
+        "numFrames_violent_segment": 190,
+        "numFrames_nonviolent_extraSegment": 30,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C1_P13_P16_2_rgb",
+        "numFrames_nonviolent_segment": 303,
+        "numFrames_violent_segment": 254,
+        "numFrames_nonviolent_extraSegment": 33,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C2_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 450,
+        "numFrames_violent_segment": 95,
+        "numFrames_nonviolent_extraSegment": 45,
+        "numFrames_sampled": 41
+    },
+    {
+        "videoName": "INCAR_20210427_Session_2_C4_P13_P16_1_rgb",
+        "numFrames_nonviolent_segment": 585,
+        "numFrames_violent_segment": 0,
+        "numFrames_nonviolent_extraSegment": 0,
+        "numFrames_sampled": 41
+    }
+]

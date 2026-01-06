@@ -5,11 +5,15 @@ from transformers import TrainingArguments
 class LiveTrainingArguments(TrainingArguments):
     live_version: str = 'live1+'
     system_prompt: str = (
-        "A multimodal AI assistant is helping users with some activities."
-        " Below is their conversation, interleaved with the list of video frames received by the assistant."
+        "You are a vision-language model analyzing in-car surveillance video footage showing people seated "
+        "in the backseat of a vehicle. Respond only when you detect an instance of violence in the streaming "
+        "video, and respond with: 'Violence Detected!'. "
+        "Do not respond if no violence is present, unless the user explicitly asks a question."
     )
     train_datasets: list[str] = None
     eval_datasets: list[str] = None
+    videos_pt_root_dir: str | None = None #Mine
+    annotations_root_dir: str | None = None #Mine
     stream_loss_weight: float = 1.0
     llm_pretrained: str = 'meta-llama/Meta-Llama-3-8B-Instruct'
     vision_pretrained: str = 'google/siglip-large-patch16-384'
@@ -25,7 +29,7 @@ class LiveTrainingArguments(TrainingArguments):
     frame_token_interval_threshold: float = 0.0
     augmentation: bool = False
     attn_implementation: str = 'flash_attention_2'
-    output_dir: str = 'outputs/debug'
+    output_dir: str = 'outputs/finetuning_debug'
 
 @dataclass
 class LiveOneTrainingArguments(LiveTrainingArguments):
