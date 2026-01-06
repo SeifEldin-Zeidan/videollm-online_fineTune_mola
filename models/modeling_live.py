@@ -6,6 +6,8 @@ from transformers.utils import logging
 from .tokenization_live import build_live_tokenizer_and_update_config
 from .vision_live import build_live_vision
 
+from transformers.cache_utils import DynamicCache
+
 logger = logging.get_logger(__name__)
 
 class LiveMixin(AutoModelForCausalLM):
@@ -169,6 +171,59 @@ class LiveMixin(AutoModelForCausalLM):
 
     def trim_past_key_values(self, past_key_values, start, stop):
         return [[past_keys[:,:,start:stop], past_values[:,:,start:stop]] for past_keys, past_values in past_key_values]
+
+
+
+    # def trim_past_key_values(self, past_key_values, start: int, stop: int): #To fix error of cache as list and not a cache obj as expected
+    #     """
+    #     Returns a *Cache object* whose KV states are sliced to token positions [start:stop).
+    #     Compatible with Transformers' new cache API (DynamicCache) and legacy caches.
+    #     """
+    #     if past_key_values is None:
+    #         return None
+
+    #     # 1) Make sure we have a Cache object (new HF API)
+    #     if isinstance(past_key_values, (list, tuple)):
+    #         cache = DynamicCache.from_legacy_cache(past_key_values)
+    #     else:
+    #         # past_key_values is already a Cache (e.g. DynamicCache)
+    #         cache = past_key_values
+
+    #     # 2) Convert to legacy for easy slicing
+    #     legacy = cache.to_legacy_cache()  # tuple of (k, v) per layer
+
+    #     trimmed_legacy = []
+    #     for k, v in legacy:
+    #         # Typical shape: [bs, n_heads, seq_len, head_dim]
+    #         trimmed_legacy.append((
+    #             k[:, :, start:stop, :].contiguous(),
+    #             v[:, :, start:stop, :].contiguous(),
+    #         ))
+
+    #     # 3) Convert back to Cache so Llama forward accepts it
+    #     return DynamicCache.from_legacy_cache(tuple(trimmed_legacy))
+    
+
+    # def trim_past_key_values(self, past_key_values, start: int, stop: int): #If always input as tuple not already a cache object, remove redundant conversion
+    #     """
+    #     past_key_values: legacy cache format
+    #     - tuple/list of layers
+    #     - each layer is (k, v) with shape [bs, n_heads, seq_len, head_dim]
+    #     Returns: DynamicCache (new HF cache API), sliced to [start:stop).
+    #     """
+    #     if past_key_values is None:
+    #         return None
+
+    #     trimmed_legacy = []
+    #     for k, v in past_key_values:
+    #         trimmed_legacy.append((
+    #             k[:, :, start:stop, :].contiguous(),
+    #             v[:, :, start:stop, :].contiguous(),
+    #         ))
+
+    #     # Convert once to the cache object that Llama expects
+    #     return DynamicCache.from_legacy_cache(tuple(trimmed_legacy))
+
 
 def fast_greedy_generate(*, model: LiveMixin, inputs_embeds: torch.Tensor, past_key_values: Cache, eos_token_id: int, inplace_output_ids: torch.Tensor):
     for i in range(inplace_output_ids.size(1)):

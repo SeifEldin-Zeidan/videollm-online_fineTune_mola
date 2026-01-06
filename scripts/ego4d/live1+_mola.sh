@@ -1,7 +1,7 @@
 #!/bin/bash
 
-VIDEOS_PT_ROOT="/path/to/videos_sampled_1+3x3_google--siglip-large-patch16-384"
-ANNOS_ROOT="/home/zeidan/Masters/videollm-online_fineTune_mola/annotating_mola/annotations_fromCombineMola_withSampledNumFrames_segDescSummary"
+VIDEOS_PT_ROOT="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_1+3x3_google--siglip-large-patch16-384"
+ANNOS_ROOT="/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/annotating_mola/annotations_fromCombineMola_withSampledNumFrames_segDescSummary"
 SYSTEM_PROMPT="You are a vision-language model analyzing in-car surveillance video footage showing people seated in the backseat of a vehicle. Respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present, unless the user explicitly asks a question."
 
 
@@ -18,7 +18,7 @@ deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
     --per_device_eval_batch_size 1 \
     --gradient_accumulation_steps 8 \
     --gradient_checkpointing True \
-    --eval_strategy epoch \
+    --eval_strategy no \
     --prediction_loss_only False \
     --save_strategy no \
     --learning_rate 0.00002 \

@@ -1,6 +1,7 @@
 
 import math
 import os, json, collections, torch, tqdm, random
+from transformers import EvalPrediction
 
 from ..ego4d import Ego4D
 from ..stream import StreamMixIn
@@ -23,6 +24,7 @@ class NLQ_MOLA(StreamMixIn):
     def __init__(self, split: str, frame_fps: int, videos_pt_root_dir: str, annotations_root_dir: str, **kwargs):
         assert split in ['train', 'val', 'test']
         super().__init__(split=split, frame_fps=frame_fps, **kwargs)
+        self.frame_fps = frame_fps
 
         seed = 42
         flipRng = random.Random(seed)
@@ -145,7 +147,7 @@ class NLQ_MOLA(StreamMixIn):
             
             videoName = annotation["videoName"]
 
-            video_pt_path = os.path.join(videos_pt_root_dir,f"{videoName}.mp4")
+            video_pt_path = os.path.join(videos_pt_root_dir,f"{videoName}.pt")
             if flip:
                 video_pt_path = video_pt_path.replace("videos_sampled", "videos_sampled_flipped")
                 # print(f"Reading video from {video_pt_path}")
@@ -159,6 +161,18 @@ class NLQ_MOLA(StreamMixIn):
                 
             })
         self.annos = annos
+
+    def compute_metrics(self, eval_predictions: EvalPrediction, *args, **kwargs):
+        lm_ppl, frame_diff, fluency, lm_correctness = torch.from_numpy(eval_predictions.predictions).mean(dim=0).tolist()
+        return {
+            'lm_ppl': lm_ppl,
+            'time_diff': frame_diff / self.frame_fps,
+            'fluency': fluency,
+            'lm_correctness': lm_correctness,
+        }
+
+    def __len__(self):
+        return len(self.annos)
 
 
     def convertNumFrames_toNewFps(self, numFrames, originalFps, newFps):
