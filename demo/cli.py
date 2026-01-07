@@ -25,9 +25,10 @@ def main(liveinfer: LiveInfer):
         ffmpeg_once(src_video_path, ffmpeg_video_path, fps=liveinfer.frame_fps, resolution=liveinfer.frame_resolution)
         logger.warning(f'{src_video_path} -> {ffmpeg_video_path}, {liveinfer.frame_fps} FPS, {liveinfer.frame_resolution} Resolution')
 
-        new_ffmpeg_video_path = ffmpeg_video_path.replace(ext,f"_concat{ext}")
+    new_ffmpeg_video_path = ffmpeg_video_path.replace(ext,f"_concat{ext}")
+    if not os.path.exists(new_ffmpeg_video_path):
         duplicate_video(ffmpeg_video_path, new_ffmpeg_video_path)
-        ffmpeg_video_path = new_ffmpeg_video_path
+    ffmpeg_video_path = new_ffmpeg_video_path
 
     liveinfer.load_video(ffmpeg_video_path)
     num_video_frames = liveinfer.num_video_frames
@@ -41,7 +42,7 @@ def main(liveinfer: LiveInfer):
     liveinfer.violence_query = violence_query
 
     liveinfer.input_query_stream(violence_query, video_time=0)
-    liveinfer.input_query_stream(user_summary_query, video_time=liveinfer.video_duration - 0.5)
+    # liveinfer.input_query_stream(user_summary_query, video_time=liveinfer.video_duration - 0.5)
 
     # liveinfer.input_query_stream('Please narrate the video in real time.', video_time=0.0)
     # liveinfer.input_query_stream('Respond as soon as you detect a violence instance in the video', video_time=0.0)

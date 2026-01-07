@@ -33,7 +33,7 @@ class NLQ_MOLA(StreamMixIn):
         
         first_print = True #debug
 
-        summarize_at_end = True #HardCoded
+        summarize_at_end = False #HardCoded
 
         shuffleDataset = True #HardCoded
 
@@ -42,6 +42,8 @@ class NLQ_MOLA(StreamMixIn):
 
         remove_start = True #HardCoded
 
+
+        shiftViolenceStart_perc = 0.3
        
 
         # violence_query = "Respond as soon as you detect a violence instance in the video" #NOTE should it have past desc or future desc about to punch or neither?
@@ -132,10 +134,14 @@ class NLQ_MOLA(StreamMixIn):
 
             if annotation["numFrames_violent_segment"] > 0: #Violent video
 
+
+                shiftViolenceStart = int(numFrames_restOfVideo * shiftViolenceStart_perc)
+
+
                 conversation += [
-                        {'role': 'stream', 'num_frames': numFrames_nonViolent_segment_converted - 1 - remove_start_numFrames, 'learn': True},
+                        {'role': 'stream', 'num_frames': numFrames_nonViolent_segment_converted - 1 - remove_start_numFrames + shiftViolenceStart, 'learn': True},
                         {'role': 'assistant', 'content': assistant_detectViolent, 'learn': True},
-                        {'role': 'stream', 'num_frames': numFrames_restOfVideo, 'learn': True},
+                        {'role': 'stream', 'num_frames': numFrames_restOfVideo - shiftViolenceStart, 'learn': True},
                         # {'role': 'assistant', 'content': f"The video related to the query \"{query}\" ends.", 'learn': True},
                     ]
                 # if annotation["numFrames_nonViolent_extraSegment"] > 0:
@@ -181,6 +187,12 @@ class NLQ_MOLA(StreamMixIn):
                     ]
 
                 conversation.extend(summaryConv)
+            else: #to fix token 60 issue , it needs a turn for chat template to add the \n after the ]
+                    
+                conversation[-1]["learn"] = conversation[-1]["num_frames"] - 1
+                    
+
+
                 
                 
             
