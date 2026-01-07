@@ -10,9 +10,9 @@ logger = transformers.logging.get_logger('liveinfer')
 # python -m demo.cli --resume_from_checkpoint ... 
 
 def main(liveinfer: LiveInfer):
-    # src_video_path = 'demo/assets/C1_P1_P2_1_Se1.mp4'
+    src_video_path = 'demo/assets/C1_P1_P2_1_Se1.mp4'
     # src_video_path = 'demo/assets/C1_P16_P15_2_Se2.mp4'
-    src_video_path = 'demo/assets/C5_P13_P14_2_Se1.mp4'
+    # src_video_path = 'demo/assets/C5_P13_P14_2_Se1.mp4'
     # src_video_path = 'demo/assets/C19_P15_P16_1_Se2.mp4'
     # src_video_path = 'demo/assets/C19_P14_P15_1_Se1.mp4'
     # src_video_path = 'demo/assets/C20_P16_P15_2_Se2.mp4'
