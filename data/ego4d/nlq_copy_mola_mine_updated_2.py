@@ -42,6 +42,8 @@ class NLQ_MOLA(StreamMixIn):
         # violence_query = "Respond as soon as you detect a violence instance in the video" #NOTE should it have past desc or future desc about to punch or neither?
         add_query = True #HardCoded
         violence_query = "Analyze the given surveilance video and respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present."
+        add_assistant_query_response = True #HardCoded
+        assistant_violence_query_response = "Okay analyzing..."
 
         assistant_detectViolent = "Violence Detected!"
 
@@ -104,6 +106,8 @@ class NLQ_MOLA(StreamMixIn):
 
             if add_query:
                 conversation += [{'role': 'user', 'content': violence_query}]
+                if add_assistant_query_response:
+                    conversation += [{'role': 'assistant', 'content': assistant_violence_query_response, 'learn': True}]
 
             if annotation["numFrames_violent_segment"] > 0: #Violent video
 

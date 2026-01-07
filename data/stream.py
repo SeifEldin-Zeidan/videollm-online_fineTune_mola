@@ -13,6 +13,8 @@ class StreamMixIn(torch.utils.data.Dataset):
         self.max_num_frames = max_num_frames
         assert system_prompt is not None, 'Please add a system prompt'
 
+        self.first_print = True #Debug
+
     # NOTE: this augmentation is to reduce the text dependency
     def augment(self, conversation): 
         if not self.augmentation or not self.is_training:
@@ -96,6 +98,15 @@ class StreamMixIn(torch.utils.data.Dataset):
             conversation = self.augment(conversation)
         conversation = [{"role": "system", "content": self.system_prompt}] + conversation
         text = self.tokenizer.apply_chat_template(conversation, tokenize=False, add_generation_prompt=add_generation_prompt)
+        if self.first_print:
+            self.first_print = False
+            print("debug Conversation AFTER apply TEMPLATE!\n")
+            print("For conversation:")
+            for obj in conversation:
+                print(obj)
+            print("\n")
+            print(text)
+
         # 3. learn ranges
         learn_ranges = self.tokenizer.get_learn_ranges(conversation) if not add_generation_prompt else []
         return text, frames, learn_ranges

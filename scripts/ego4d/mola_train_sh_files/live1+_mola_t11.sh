@@ -13,7 +13,7 @@ deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
     --annotations_root_dir "${ANNOS_ROOT}" \
     --system_prompt "${SYSTEM_PROMPT}" \
     --resume_from_checkpoint chenjoya/videollm-online-8b-v1plus \
-    --num_train_epochs 4 \
+    --num_train_epochs 10 \
     --per_device_train_batch_size 4 \
     --per_device_eval_batch_size 1 \
     --gradient_accumulation_steps 8 \
@@ -23,11 +23,11 @@ deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
     --save_strategy no \
     --learning_rate 0.00002 \
     --optim adamw_torch \
-    --lr_scheduler_type constant \
+    --lr_scheduler_type cosine \
     --warmup_ratio 0.05 \
     --logging_steps 10 \
     --dataloader_num_workers 6 \
     --bf16 True \
     --tf32 True \
     --report_to tensorboard \
-    --output_dir outputs/mola_live1+/train_10
+    --output_dir outputs/mola_live1+/train_11

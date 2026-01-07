@@ -36,6 +36,11 @@ class LiveInfer:
         self._added_stream_prompt_ids = self.tokenizer.apply_chat_template([{}], add_stream_prompt=True, return_tensors='pt').to('cuda')
         self._added_stream_generation_ids = self.tokenizer.apply_chat_template([{}], add_stream_generation_prompt=True, return_tensors='pt').to('cuda')
         
+
+        self.violence_query = "Analyze the given surveilance video and respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present."
+
+
+
         # app
         self.reset()
 
@@ -56,7 +61,7 @@ class LiveInfer:
     def _call_for_streaming(self, ):
         while self.frame_embeds_queue:
             # 1. if query is before next frame, response
-            if self.query_queue and self.frame_embeds_queue[0][0] > self.query_queue[0][0]:
+            if self.query_queue and self.frame_embeds_queue[0][0] > self.query_queue[0][0]: #and self.query_queue[0][1] != self.violence_query:
                 video_time, query = self.query_queue.popleft()
                 return video_time, query
             video_time, frame_embeds = self.frame_embeds_queue.popleft()
@@ -71,7 +76,7 @@ class LiveInfer:
             outputs = self.model(inputs_embeds=inputs_embeds, use_cache=True, past_key_values=self.past_key_values)
             self.past_key_values = outputs.past_key_values
             # 2. if the same time, response after frame at that time
-            if self.query_queue and video_time >= self.query_queue[0][0]:
+            if self.query_queue and video_time >= self.query_queue[0][0]: # and self.query_queue[0][1] != self.violence_query:
                 video_time, query = self.query_queue.popleft()
                 return video_time, query
             # 3. if the next is frame but next is not interval, then response
@@ -83,10 +88,10 @@ class LiveInfer:
             last_ids_token = self.tokenizer.convert_ids_to_tokens(self.last_ids)
             token_interval_id_token = self.tokenizer.convert_ids_to_tokens(self.frame_token_interval_id)
             print(f"self.last_ids = next_score.argmax(dim=-1) = {self.last_ids}, converted = {last_ids_token}")
-            print(f"frame_token_interval_threshold = {self.frame_token_interval_id}, converted = {token_interval_id_token}")
+            # print(f"frame_token_interval_id = {self.frame_token_interval_id}, converted = {token_interval_id_token}")
 
-            token_933 = self.tokenizer.convert_ids_to_tokens([933])
-            print(f"token id 933 is = {token_933}")
+            # token_933 = self.tokenizer.convert_ids_to_tokens([933])
+            # print(f"token id 933 is = {token_933}")
 
             if self.last_ids != self.frame_token_interval_id: 
                 return video_time, None

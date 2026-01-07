@@ -30,4 +30,4 @@ deepspeed train.py --deepspeed configs/deepspeed/zero2.json \
     --bf16 True \
     --tf32 True \
     --report_to tensorboard \
-    --output_dir outputs/mola_live1+/train_10
+    --output_dir outputs/mola_live1+/train_9
