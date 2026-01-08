@@ -1,9 +1,11 @@
 
 import math
+import numpy as np
 import os, json, collections, torch, tqdm, random
-from transformers import EvalPrediction
+# from transformers import EvalPrediction
+from transformers import PreTrainedTokenizer, EvalPrediction
 
-from ..ego4d import Ego4D
+# from . import Ego4D
 from ..stream import StreamMixIn
 from ..utils import temporal_iou, DictWithTo, ceil_time_by_fps
 
@@ -20,7 +22,9 @@ from ..utils import temporal_iou, DictWithTo, ceil_time_by_fps
 
 class NLQ_MOLA(StreamMixIn):
 
-    evaluation_kwargs = DictWithTo(evaluator='stream_evaluate')
+    # evaluation_kwargs = DictWithTo(evaluator='stream_evaluate')
+    evaluation_kwargs = DictWithTo(evaluator='generate_after_embed', max_new_tokens=512, do_sample=False, use_cache=True, temperature=1.0, top_p=1.0)
+
     def __init__(self, split: str, frame_fps: int, videos_pt_root_dir: str, annotations_root_dir: str, **kwargs):
         assert split in ['train', 'val', 'test']
         super().__init__(split=split, frame_fps=frame_fps, **kwargs)
@@ -43,8 +47,7 @@ class NLQ_MOLA(StreamMixIn):
         remove_start = True #HardCoded
 
 
-        self.shiftViolenceStart_perc = 0.2
-        self.max_shiftViolenceStart_time = 1.5 #sec
+        shiftViolenceStart_perc = 0.3
        
 
         # violence_query = "Respond as soon as you detect a violence instance in the video" #NOTE should it have past desc or future desc about to punch or neither?
@@ -63,10 +66,10 @@ class NLQ_MOLA(StreamMixIn):
         annotations_json = json.load(open(anno_path))
 
         self.shuffleDataset = shuffleDataset
-        if shuffleDataset:
-            self.indices = list(range(len(annotations_json)))
-            rng = random.Random(seed) 
-            rng.shuffle(self.indices)
+        # if shuffleDataset:
+        #     self.indices = list(range(len(annotations_json)))
+        #     rng = random.Random(seed) 
+        #     rng.shuffle(self.indices)
 
         self.rng_start_shift = random.Random(seed)
 
@@ -136,8 +139,7 @@ class NLQ_MOLA(StreamMixIn):
             if annotation["numFrames_violent_segment"] > 0: #Violent video
 
 
-                # shiftViolenceStart = math.ceil(numFrames_restOfVideo * shiftViolenceStart_perc)
-                shiftViolenceStart = self.get_shiftViolenceStart(numFrames_restOfVideo, frame_fps)
+                shiftViolenceStart = int(numFrames_restOfVideo * shiftViolenceStart_perc)
 
 
                 conversation += [
@@ -225,17 +227,61 @@ class NLQ_MOLA(StreamMixIn):
                 'load_ranges': {video_pt_path: range(0 + remove_start_numFrames, annotation["numFrames_sampled"])}
                 
             })
+
+        if split == "val": #NOTEL remove, this was during tesing eval func
+            annos = annos[:3]
+        
+
         self.annos = annos
 
-    def compute_metrics(self, eval_predictions: EvalPrediction, *args, **kwargs):
-        lm_ppl, frame_diff, fluency, lm_correctness = torch.from_numpy(eval_predictions.predictions).mean(dim=0).tolist()
-        return {
-            'lm_ppl': lm_ppl,
-            'time_diff': frame_diff if self.useRandFps else frame_diff / self.frame_fps,  #return num frames diff if rand fps or time if static fps
-            'fluency': fluency,
-            'lm_correctness': lm_correctness,
-        }
+        self.annos_np = np.array(self.annos) #to be able to fancy index them in compute metrics
 
+        if shuffleDataset:
+            self.indices = list(range(len(self.annos)))
+            rng = random.Random(seed) 
+            rng.shuffle(self.indices)
+
+    # def compute_metrics(self, eval_predictions: EvalPrediction, *args, **kwargs):
+    #     lm_ppl, frame_diff, fluency, lm_correctness = torch.from_numpy(eval_predictions.predictions).mean(dim=0).tolist()
+    #     return {
+    #         'lm_ppl': lm_ppl,
+    #         'time_diff': frame_diff if self.useRandFps else frame_diff / self.frame_fps,  #return num frames diff if rand fps or time if static fps
+    #         'fluency': fluency,
+    #         'lm_correctness': lm_correctness,
+    #     }
+
+    def get_real_idxs(self, sample_idxs):
+        if not self.shuffleDataset:
+            return sample_idxs
+        else:
+            real_idxs = []
+            for sample_idx in sample_idxs:
+                realIndex = self.indices[sample_idx]
+                real_idxs.append(realIndex)
+            return real_idxs
+
+
+
+    def compute_metrics(self, eval_predictions: EvalPrediction, tokenizer: PreTrainedTokenizer, **kwargs):
+        batch_pred_tensor, sample_idxs = eval_predictions.predictions, eval_predictions.label_ids
+        batch_pred_tensor[batch_pred_tensor < 0] = tokenizer.bos_token_id # not use clamp(min=0), since 0 is ! in Llama-3 tokenizer and may affect matching
+        predictions = tokenizer.batch_decode(batch_pred_tensor, skip_special_tokens=True, clean_up_tokenization_spaces=True)
+        correct = 0
+        # for prediction, label in zip(predictions, self.labels[sample_idxs]): # should be self.labels[sample_idx] to get the correct order
+        #     prediction = prediction.lower().rstrip('.')
+        #     if prediction == label or self.fuzzy_match(prediction, self.categories) == label:
+        #         correct += 1
+        sample_idxs_real = self.get_real_idxs(sample_idxs)
+        for prediction, label in zip(predictions, self.annos_np[sample_idxs_real]):
+            print("\nLabel (annotation):") 
+            print(label)
+
+            print("\nPrediction:")
+            print(prediction)
+
+
+        return dict(accuracy=99) # * 100
+    
     def __len__(self):
         return len(self.annos)
 
@@ -280,10 +326,6 @@ class NLQ_MOLA(StreamMixIn):
             remove_start_numFrames = int(firstPart * shift_percent)
 
         return remove_start_numFrames
-    def get_shiftViolenceStart(self, numFrames_restOfVideo, frame_fps):
-        # shift_perc_v = math.ceil(numFrames_restOfVideo * self.shiftViolenceStart_perc)
-        max_numFrames_shift_bySec = math.ceil(self.max_shiftViolenceStart_time * frame_fps)
-        return min(numFrames_restOfVideo-frame_fps, max_numFrames_shift_bySec)
 
 
 
