@@ -13,7 +13,7 @@ class StreamMixIn(torch.utils.data.Dataset):
         self.max_num_frames = max_num_frames
         assert system_prompt is not None, 'Please add a system prompt'
 
-        self.first_print = True #Debug
+        self.first_print = False #Debug
 
     # NOTE: this augmentation is to reduce the text dependency
     def augment(self, conversation): 

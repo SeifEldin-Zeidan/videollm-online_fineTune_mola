@@ -88,6 +88,8 @@ def get_learn_ranges(conversation: list[dict], *, chat_template_offsets: dict[tu
     learn_ranges = []
     last_role = None
     for message in conversation:
+        # print("Learn Ranges:")
+        # print(learn_ranges)
         role = message['role']
         offset += chat_template_offsets[(last_role, role)]
         last_role = role
@@ -97,8 +99,13 @@ def get_learn_ranges(conversation: list[dict], *, chat_template_offsets: dict[tu
                 # the last one has ]\n, should also consider \n
                 ranges[-1, 1] += 1
                 if not isinstance(message['learn'], bool):
+                    pred_range = ranges[-1]             #]\n 
                     ranges = ranges[:message['learn']]
                 learn_ranges.extend([range(r[0], r[1]) for r in ranges])
+
+                if message.get("force_addPred", False) and message.get('learn', False) and not isinstance(message['learn'], bool): #force append the stop token to boundary in violence
+                    learn_ranges.append(range(pred_range[0], pred_range[1]))
+                        
             offset += get_stream_placeholder_len(message['num_frames'], model_config)
         else:
             if role == 'assistant':

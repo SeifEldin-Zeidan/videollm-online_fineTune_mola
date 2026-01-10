@@ -44,7 +44,7 @@ class NLQ_MOLA(StreamMixIn):
 
 
         self.shiftViolenceStart_perc = 0.2
-        self.max_shiftViolenceStart_time = 1.5 #sec
+        self.max_shiftViolenceStart_time = 3 #sec
        
 
         # violence_query = "Respond as soon as you detect a violence instance in the video" #NOTE should it have past desc or future desc about to punch or neither?
@@ -138,8 +138,11 @@ class NLQ_MOLA(StreamMixIn):
 
                 # shiftViolenceStart = math.ceil(numFrames_restOfVideo * shiftViolenceStart_perc)
                 shiftViolenceStart = self.get_shiftViolenceStart(numFrames_restOfVideo, frame_fps)
-
-
+                print("\n")
+                print(f"VideoName = {annotation['videoName']}")
+                print(f"remove_start_numFrames = {remove_start_numFrames}, = {remove_start_numFrames / frame_fps} secs - @ {frame_fps} fps")
+                print(f"shiftViolenceStart = {shiftViolenceStart}")
+                print("\n")
                 conversation += [
                         {'role': 'stream', 'num_frames': numFrames_nonViolent_segment_converted - 1 - remove_start_numFrames + shiftViolenceStart, 'learn': True},
                         {'role': 'assistant', 'content': assistant_detectViolent, 'learn': True},

@@ -2,6 +2,7 @@
 import argparse
 import math
 import os, torchvision, transformers, time, json
+import random
 import sys
 # from tqdm import tqdm
 import tqdm
@@ -19,6 +20,9 @@ logger = transformers.logging.get_logger('liveinfer')
 # --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_14/
 
 
+seed = 42
+flipRng = random.Random(seed)
+
 def main(liveinfer: LiveInfer, dataset_annos, pt_root_path, results_path):
 
 
@@ -27,6 +31,10 @@ def main(liveinfer: LiveInfer, dataset_annos, pt_root_path, results_path):
         print(f"Processing video: {videoName}")
         # sample_video_path = os.path.join(videos_root_path, videoName)
         sample_pt_path = os.path.join(pt_root_path, f"{videoName}.pt")
+
+        flip = flipRng.choice([True, False])
+        if flip:
+            sample_pt_path = sample_pt_path.replace("1+3x3", "flipped_1+3x3")
 
 
         isVideoViolent = videoAnno["isViolent"]
@@ -128,11 +136,9 @@ def loadAnnotations(anno_path, frame_fps, max_shiftViolenceStart_time):
 
 if __name__ == '__main__': #run with 2 fps annotations
 
-    #NOTE: handle flip later
-    #NOTE: run with checkpoint!!
     
 
-    anno_path_def = "/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/annotating_mola/annotations_fromCombineMola_withSampledNumFrames_segDescSummary/vLLMonline_mola_test.json"
+    anno_path_def = "/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/annotating_mola/annotations_fromCombineMola_withSampledNumFrames_segDescSummary/vLLMonline_mola_val.json"
 
     pt_root_path_def = "/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_1+3x3_google--siglip-large-patch16-384"
     results_root_path_def = "/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/demo/eval_mola_stream_results"
@@ -165,8 +171,8 @@ if __name__ == '__main__': #run with 2 fps annotations
     os.makedirs(results_root_path, exist_ok=True)
 
     annotype = anno_path_def.split("_")[-1].split(".")[0]
-    results_path = os.path.join(results_root_path, f"{annotype}_results.jsonl")
-
+    results_path = os.path.join(results_root_path, f"{annotype}_results_t15_chk_last_val.jsonl")
+    #To Read, the eval file that got 95% with t_15 , i dont know why or is there a difference in training or eval file??
     old_argv = sys.argv
     sys.argv = [old_argv[0]] + model_args
 

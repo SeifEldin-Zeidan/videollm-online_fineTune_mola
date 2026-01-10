@@ -87,7 +87,7 @@ class LiveInfer:
 
             last_ids_token = self.tokenizer.convert_ids_to_tokens(self.last_ids)
             token_interval_id_token = self.tokenizer.convert_ids_to_tokens(self.frame_token_interval_id)
-            print(f"self.last_ids = next_score.argmax(dim=-1) = {self.last_ids}, converted = {last_ids_token}")
+            # print(f"self.last_ids = next_score.argmax(dim=-1) = {self.last_ids}, converted = {last_ids_token}")
             # print(f"frame_token_interval_id = {self.frame_token_interval_id}, converted = {token_interval_id_token}")
 
             # token_933 = self.tokenizer.convert_ids_to_tokens([933])
