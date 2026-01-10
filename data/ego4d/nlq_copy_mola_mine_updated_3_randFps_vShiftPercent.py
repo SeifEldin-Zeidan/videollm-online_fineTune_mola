@@ -33,7 +33,7 @@ class NLQ_MOLA(StreamMixIn):
         
         first_print = True #debug
 
-        summarize_at_end = False #HardCoded
+        summarize_at_end = True #HardCoded
 
         shuffleDataset = True #HardCoded
 

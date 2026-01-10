@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=t_24
-#SBATCH --partition=H200-AV,H200-PCI,H200,H100,H100-PCI
+#SBATCH --partition=H200,H200-PCI
 #SBATCH --gpus=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G 
@@ -26,6 +26,6 @@ cd /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola
 
 
 
-bash scripts/ego4d/mola_train_sh_files/live1+_mola_t24_rand_vShiftPerc_FIXED_learnBoundaryFalse.sh
+bash scripts/ego4d/mola_train_sh_files/live1+_mola_t24_rand_vShiftPerc_summary.sh
 
 

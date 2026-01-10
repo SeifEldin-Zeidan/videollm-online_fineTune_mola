@@ -21,7 +21,7 @@ def plot_accuracies_by_checkpoint(
     *,
     checkpoint_key: str = "chkPnt",
     metric_prefix: str = "accuracy_",
-    filename: str = "accuracies_by_checkpoint.png",
+    filename: str = "eval_set_accuracies_by_checkpoint.png",
     title: Optional[str] = "Accuracies vs Checkpoint",
 ) -> Path:
     if not records:
@@ -313,8 +313,8 @@ if __name__ == "__main__":
     bestAcc = 0
     best_chk = None
     best_chk_metrics = None
-    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_20/chk_210"
-    val = False
+    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_24"
+    val = True
     count_total = 317
     count_lower_than_total = []
     metrics_chkPnt = []

@@ -12,6 +12,8 @@ logger = transformers.logging.get_logger('liveinfer')
 
 liveinfer = LiveInfer()
 
+violence_query_def = "Analyze the given surveilance video and respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present."
+
 css = """
     #gr_title {text-align: center;}
     #gr_video {max-height: 480px;}
@@ -48,7 +50,9 @@ with gr.Blocks(title="VideoLLM-online", css=css) as demo:
                     avatar_images=('demo/user_avatar.png', 'demo/assistant_avatar.png'),
                     render=False
                 ),
-                examples=['Please narrate the video in real time.', 'Please describe what I am doing.', 'Could you summarize what have been done?', 'Hi, guide me the next step.'],
+                # examples=['Please narrate the video in real time.', 'Please describe what I am doing.', 'Could you summarize what have been done?', 'Hi, guide me the next step.'],
+                
+                examples=[violence_query_def]
             )
             
             def gr_frame_token_interval_threshold_change(frame_token_interval_threshold):
