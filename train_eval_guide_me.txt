@@ -1,0 +1,38 @@
+CHECK OTHER ARGUMENTS! or Hardcoded values!!!!
+
+
+
+=Train:
+
+see slurm train file train_batchJob.slurm
+
+source /netscratch/zeidan/miniconda3/bin/activate 
+
+conda activate videoLLM-online-Gradio-clone-ft
+
+
+cd /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola
+
+
+
+*bash scripts/ego4d/mola_train_sh_files/live1+_mola_t29_rand_vShiftPerc_FIXED_learnBoundaryFalse.sh
+
+
+python -m demo.eval_mola_stream_chkPnts_auto --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_29
+
+
+
+
+=evaluate all checkpoints:
+python -m demo.eval_mola_stream_chkPnts_auto --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_21/
+
+=evaluate one checkpoint (hardcoded path test anno):
+
+python -m demo.eval_mola_stream_chkPnts --train_num 20 --chk_num 210 --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_20/checkpoint-210/
+
+
+
+=run inference on videos manual video entry:
+python -m demo.cli_loop --resume_from_checkpoint outputs/mola_live1+/train_23/checkpoint-280
+
+
