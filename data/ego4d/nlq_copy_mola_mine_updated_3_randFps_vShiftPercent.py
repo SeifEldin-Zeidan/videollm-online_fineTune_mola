@@ -214,10 +214,13 @@ class NLQ_MOLA(StreamMixIn):
 
             video_pt_path = os.path.join(videos_pt_root_dir,f"{videoName}.pt")
             if flip:
-                if useRandFps:
-                    video_pt_path = video_pt_path.replace("videos_sampled_randFps", "videos_sampled_randFps_flipped")
-                else:
-                    video_pt_path = video_pt_path.replace("videos_sampled", "videos_sampled_flipped")
+                # if useRandFps:
+                #     video_pt_path = video_pt_path.replace("videos_sampled_randFps", "videos_sampled_randFps_flipped")
+                # else:
+                #     video_pt_path = video_pt_path.replace("videos_sampled", "videos_sampled_flipped")
+
+                video_pt_path = video_pt_path.replace("1+3x3", "flipped_1+3x3")
+                
                 # print(f"Reading video from {video_pt_path}")
                 # print(conversation)
             annos.append({

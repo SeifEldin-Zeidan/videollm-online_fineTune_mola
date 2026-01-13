@@ -1,1 +1,34 @@
-1. use 
+conda activate videollmonline fine tune ...
+/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola
+
+1. sample frames to video mp4  ---- 45 mins--
+
+python ffmpeg_mine_parallel_randFps.py --out_videos_dir /netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_randFps
+ffmpeg_mine_parallel.py
+ffmpeg_mine.py
+
+if use parallel enter - stty echo - after it to get back typing as it stops\
+
+
+
+2. encode 5 mins
+
+python -m data.preprocess.encode --num_gpus 1 --vision_pretrained google/siglip-large-patch16-384 --video_dir /netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_randFps_flipped/
+
+
+for flipping
+conda activate yolo_1
+
+
+3. flip annotating_mola/flipVideos_parallel.py   -- 6 mins --
+
+4. encode
+
+
+python -m data.preprocess.encode --num_gpus 1 --vision_pretrained google/siglip-large-patch16-384 --video_dir /netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_randFps_flipped/
+
+
+
+
+
+

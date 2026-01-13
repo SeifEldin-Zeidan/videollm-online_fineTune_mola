@@ -21,7 +21,7 @@ from ..utils import temporal_iou, DictWithTo, ceil_time_by_fps
 class NLQ_MOLA(StreamMixIn):
 
     evaluation_kwargs = DictWithTo(evaluator='stream_evaluate')
-    def __init__(self, split: str, frame_fps: int, videos_pt_root_dir: str, annotations_root_dir: str, **kwargs):
+    def __init__(self, split: str, frame_fps: int, videos_pt_root_dir: str, annotations_root_dir: str, shiftViolenceStart_perc: float, summarize_at_end: bool, shuffleDataset: bool, useRandFps: bool, boundary_learnFalse: bool, **kwargs):
         assert split in ['train', 'val', 'test']
         super().__init__(split=split, frame_fps=frame_fps, **kwargs)
         self.frame_fps = frame_fps
@@ -33,19 +33,21 @@ class NLQ_MOLA(StreamMixIn):
         
         first_print = True #debug
 
-        summarize_at_end = False #HardCoded
+        # summarize_at_end = False #HardCoded
 
-        shuffleDataset = True #HardCoded
+        # shuffleDataset = True #HardCoded
 
-        useRandFps = True #HARDCoded
+        # useRandFps = True #HARDCoded
         self.useRandFps = useRandFps
 
         remove_start = True #HardCoded
 
-        boundary_learnFalse = True #HardCoded
+        # boundary_learnFalse = True #HardCoded
 
 
-        self.shiftViolenceStart_perc = 0.3
+        # self.shiftViolenceStart_perc = 0.3 #HardCoded
+        self.shiftViolenceStart_perc = shiftViolenceStart_perc
+
         # self.max_shiftViolenceStart_time = 3 #sec
        
 
@@ -228,10 +230,15 @@ class NLQ_MOLA(StreamMixIn):
 
             video_pt_path = os.path.join(videos_pt_root_dir,f"{videoName}.pt")
             if flip:
-                if useRandFps:
-                    video_pt_path = video_pt_path.replace("videos_sampled_randFps", "videos_sampled_randFps_flipped")
-                else:
-                    video_pt_path = video_pt_path.replace("videos_sampled", "videos_sampled_flipped")
+                # if useRandFps:
+                #     video_pt_path = video_pt_path.replace("videos_sampled_randFps", "videos_sampled_randFps_flipped")
+                # else:
+                #     video_pt_path = video_pt_path.replace("videos_sampled", "videos_sampled_flipped")
+
+                video_pt_path = video_pt_path.replace("1+3x3", "flipped_1+3x3")
+
+
+
                 # print(f"Reading video from {video_pt_path}")
                 # print(conversation)
             annos.append({

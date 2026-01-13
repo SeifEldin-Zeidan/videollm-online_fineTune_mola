@@ -12,6 +12,11 @@ class LiveTrainingArguments(TrainingArguments):
     eval_datasets: list[str] = None
     videos_pt_root_dir: str | None = None #Mine
     annotations_root_dir: str | None = None #Mine
+    shiftViolenceStart_perc: float = 0.3 #Mine
+    summarize_at_end: bool = False #Mine
+    shuffleDataset: bool = True #Mine
+    useRandFps: bool = True #Mine
+    boundary_learnFalse: bool = True #Mine
     stream_loss_weight: float = 1.0
     llm_pretrained: str = 'meta-llama/Meta-Llama-3-8B-Instruct'
     vision_pretrained: str = 'google/siglip-large-patch16-384'

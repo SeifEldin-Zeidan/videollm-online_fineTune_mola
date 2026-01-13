@@ -15,6 +15,17 @@ from typing import List, Dict, Any, Optional, Union
 import matplotlib.pyplot as plt
 
 
+
+def getPerScenarioAccuracy(perScenarioResults):
+    perScenario_accuracy = {}
+    for n in range(1, 21):
+        scenario_gt = perScenarioResults[f"{n}_gt"]
+        scenario_correct = perScenarioResults[f"{n}_correct"]
+        scenario_acc = scenario_correct / scenario_gt if scenario_gt else -1
+        perScenario_accuracy[f"C{n}"] = scenario_acc
+    return perScenario_accuracy
+
+
 def plot_accuracies_by_checkpoint(
     records: List[Dict[str, Any]],
     out_dir: Union[str, Path],
@@ -129,6 +140,9 @@ def compute_metrics(
         # "fn": FN,
     }
 
+def get_scenario_num(videoPath):
+    scenario =  int(re.findall(r"C\d+", videoPath)[0][1:])
+    return scenario
 
 def get_isVideoViolent(videoPath):
     scenario =  int(re.findall(r"C\d+", videoPath)[0][1:])
@@ -182,6 +196,8 @@ def print_time_diff_metric():
     print(f"Detections Early avg = {avg_delayed_before} secs")
     print(f"Detections Delay perc = {delayed_after_perc * 100} %")
     print(f"Detections Early perc = {delayed_before_perc * 100} %")
+
+    return results
 
 
 
@@ -256,6 +272,7 @@ def loadAnnotations(anno_path, frame_fps, max_shiftViolenceStart_time):
     return annotations_dict
 
 def eval_results(results_list: list[dict]):
+    perScenarioResults = defaultdict(int)
     correct_violent = 0
     gt_total_violent = 0
 
@@ -264,8 +281,8 @@ def eval_results(results_list: list[dict]):
     for result in tqdm(results_list):
         videoName = result["videoName"]
 
-        # isVideoViolent = result["isVideoViolent"]
-        isVideoViolent = get_isVideoViolent(videoName) #remove Later
+        isVideoViolent = result["isVideoViolent"]
+        # isVideoViolent = get_isVideoViolent(videoName) #remove Later
 
   
 
@@ -275,7 +292,7 @@ def eval_results(results_list: list[dict]):
         detected_time = None
         for obj in result["conversation"]:
             if "role" in obj and obj["role"] == "assistant" and obj["time"] != 0.0:
-                if "Violence Detected" in obj["content"]:
+                if "Assistant: Violence Detected!" in obj["content"]:
                     if found_violence_detected:
                         print("For the followin Obj found MULTIPLE assistant response with violence detected!!")
                         print(obj)
@@ -285,22 +302,30 @@ def eval_results(results_list: list[dict]):
                     print("For the followin Obj found assistant response not violence or query response!!")
                     print(obj)
 
+        scenario_num = get_scenario_num(videoName)
+        perScenarioResults[f"{scenario_num}_gt"] += 1
         if isVideoViolent:
             gt_total_violent += 1
             if found_violence_detected:
                 correct_violent += 1
+                perScenarioResults[f"{scenario_num}_correct"] += 1
                 time_diff_metric(videoName, detected_time)
         else:
             gt_total_nonViolent += 1
             if not found_violence_detected:
                 correct_nonViolent += 1
+                perScenarioResults[f"{scenario_num}_correct"] += 1
 
     metrics = compute_metrics(correct_violent=correct_violent, gt_total_violent=gt_total_violent, correct_nonviolent=correct_nonViolent, gt_total_nonviolent=gt_total_nonViolent)
     print(metrics)
     try:
-        print_time_diff_metric()
+        results = print_time_diff_metric()
+        metrics = {**metrics, **results} 
     except:
         print("Couldnt get time diff metric!")
+
+    perScenario_acc = getPerScenarioAccuracy(perScenarioResults)
+    metrics = {**metrics, **perScenario_acc} 
 
     return metrics
     
@@ -313,8 +338,8 @@ if __name__ == "__main__":
     bestAcc = 0
     best_chk = None
     best_chk_metrics = None
-    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_24"
-    val = True
+    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_27/chk_91"
+    val = False
     count_total = 317
     count_lower_than_total = []
     metrics_chkPnt = []
@@ -323,8 +348,8 @@ if __name__ == "__main__":
         # files.sort(key=lambda f: int(f.split("_")[1].split(".")[0]))
         for filename in files:
             if filename.endswith(".jsonl"):
-                # if filename != "test_results.jsonl":
-                #     continue
+                if filename == "test_results_4fps.jsonl":
+                    continue
                 if val and "val" not in filename:
                     continue
                 elif not val and "test" not in filename:
@@ -333,6 +358,7 @@ if __name__ == "__main__":
                 chkPnt = os.path.basename(os.path.dirname(anno_path)).split("_")[-1]
                 print("=" *10)
                 print(f"Processing checkPoint: {chkPnt}")
+                print(f"testing results in: {filename}")
     
                 results_list = []
                 with open(anno_path) as f:
@@ -350,6 +376,7 @@ if __name__ == "__main__":
                 total_ran = metrics["count_violence"] + metrics["count_nonViolence"]
                 if total_ran < count_total:
                     count_lower_than_total.append((chkPnt, metrics))
+                    print(f"Skipped chk pnt: {chkPnt} has {total_ran} samples which is less then count_total = {count_total}")
                     continue #skip rest, not appended in graph
 
                 if metrics["accuracy_overall"] > bestAcc:
@@ -359,6 +386,11 @@ if __name__ == "__main__":
 
                 metrics["chkPnt"] = chkPnt
                 metrics_chkPnt.append(metrics)
+                time_diff_gt_detection_after.clear()
+                time_diff_gt_detection_before.clear()
+                time_diff_gt_delayed_detection_after.clear()
+                time_diff_gt_delayed_detection_before.clear()
+
     # print(metrics_chkPnt)
     if len(metrics_chkPnt) > 1 and val:
         plot_accuracies_by_checkpoint(metrics_chkPnt, anno_path_root)

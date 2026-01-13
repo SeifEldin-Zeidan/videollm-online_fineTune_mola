@@ -157,6 +157,7 @@ if __name__ == '__main__': #run with 2 fps annotations
     parser.add_argument("--anno_path", type=str, required=False, default=anno_path_def)
     parser.add_argument("--pt_root_path", type=str, required=False, default=pt_root_path_def)
     parser.add_argument("--results_root_path", type=str, required=False, default=results_root_path_def)
+    parser.add_argument("--results_fileName", type=str, required=False, default=None)
     parser.add_argument("--violence_query", type=str, required=False, default=violence_query_def)
     parser.add_argument("--user_summary_query", type=str, required=False, default=user_summary_query_def)
     parser.add_argument("--frame_fps", type=int, required=False, default=frame_fps_def)
@@ -168,6 +169,7 @@ if __name__ == '__main__': #run with 2 fps annotations
     anno_path = script_args.anno_path
     pt_root_path = script_args.pt_root_path
     results_root_path = script_args.results_root_path
+    results_fileName = script_args.results_fileName
     violence_query = script_args.violence_query
     user_summary_query = script_args.user_summary_query
     frame_fps = script_args.frame_fps
@@ -179,8 +181,11 @@ if __name__ == '__main__': #run with 2 fps annotations
 
     os.makedirs(results_root_path, exist_ok=True)
 
-    annotype = anno_path_def.split("_")[-1].split(".")[0]
-    results_path = os.path.join(results_root_path, f"{annotype}_results.jsonl")
+    if not results_fileName:
+        annotype = anno_path_def.split("_")[-1].split(".")[0]
+        results_path = os.path.join(results_root_path, f"{annotype}_results.jsonl")
+    else:
+        results_path = os.path.join(results_root_path, results_fileName)
 
     old_argv = sys.argv
     sys.argv = [old_argv[0]] + model_args
@@ -190,6 +195,8 @@ if __name__ == '__main__': #run with 2 fps annotations
 
     liveinfer = LiveInfer()
     liveinfer.violence_query = violence_query 
+
+    liveinfer.frame_fps = frame_fps
     
     sys.argv = old_argv
 

@@ -1,6 +1,7 @@
 import os, json
 
 import matplotlib.pyplot as plt
+import statistics
 
 def plot_time_distribution(times, bins=20):
     """
@@ -34,3 +35,11 @@ for sample in samples:
 
 
 plot_time_distribution(violent_triggerTimes)
+
+
+average = statistics.mean(violent_triggerTimes)
+mode = statistics.mode(violent_triggerTimes)
+
+print(f"Mean Trigger Time: {average}")
+print(f"Mean Percentage of video 20 Secs: {average/20}")
+print(f"Mode Trigger Time: {mode}")

@@ -171,7 +171,7 @@ def ffmpeg_once(src_path: str, dst_path: str, *, fps: int = None, resolution: in
 
 
 
-def process_one(folderName: str, videosDir: str, outDir: str):
+def process_one(folderName: str, videosDir: str, outDir: str, fps: int):
     folder = os.path.join(videosDir, folderName)
     if not os.path.isdir(folder):
         return None
@@ -179,7 +179,7 @@ def process_one(folderName: str, videosDir: str, outDir: str):
     videoOutPath = os.path.join(outDir, f"{folderName}.mp4")
     print(f"\n!!!!!!!!!Sampling video {folderName}!!!!!!!!\n")
 
-    ffmpeg_once_frames(src_path=folder, dst_path=videoOutPath, fps=2, resolution=384)
+    ffmpeg_once_frames(src_path=folder, dst_path=videoOutPath, fps=fps, resolution=384)
     return folderName
 
 
@@ -189,6 +189,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--input_frames_dir", type=str, default="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_train_val_test_split", required=False)
     parser.add_argument("--out_videos_dir", type=str, default="/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled", required=False)
+    parser.add_argument("--fps", type=int, default=2, required=False)
 
     args = parser.parse_args()
 
@@ -197,6 +198,8 @@ if __name__ == "__main__":
 
     videosDir = args.input_frames_dir
     outDir = args.out_videos_dir
+    fps = args.fps
+    print(f"Sampling with fps = {fps}!")
 
     os.makedirs(outDir, exist_ok=True)
 
@@ -230,7 +233,7 @@ if __name__ == "__main__":
     workers = min(8, (os.cpu_count() or 8))
 
     with ProcessPoolExecutor(max_workers=workers) as ex:
-        futures = [ex.submit(process_one, name, videosDir, outDir) for name in folder_names]
+        futures = [ex.submit(process_one, name, videosDir, outDir, fps) for name in folder_names]
 
         for f in as_completed(futures):
             try:

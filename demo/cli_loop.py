@@ -21,14 +21,24 @@ def main(liveinfer: LiveInfer):
 
     default_video_root_path = "/netscratch/zeidan/INCar_Videos/"
     print(f"Using Default Video Path: {default_video_root_path}")
+    # do_duplicate_ans = input("Do you want to duplicate video stream to increase duration?: -y- for yes\n")
+    # do_duplicate = True if do_duplicate_ans == "y" else False
+    frame_fps_manual = int(input("Please enter the Fps to test on (if you want per video enter -1, or else enter a number): "))
+    changing_fps = frame_fps_manual == -1
+
     while True:
         liveinfer.reset()
-
-        print("Please Enter Video Name: \n\n")
+        if changing_fps:
+            frame_fps_manual = int(input("Please enter the Fps for the next video: "))
+        liveinfer.frame_fps = frame_fps_manual
+        print("Please Enter Video Name: \n")
         video_name = input("\n")
         if not video_name.endswith(".mp4"):
             video_name += ".mp4"
         src_video_path = os.path.join(default_video_root_path, video_name)
+
+        do_duplicate_ans = input("Do you want to duplicate video stream to increase duration?: y for yes\n")
+        # do_duplicate = True if do_duplicate_ans == "y" else False
 
         name, ext = os.path.splitext(src_video_path)
         ffmpeg_video_path = os.path.join('demo/assets/cache', name + f'_{liveinfer.frame_fps}fps_{liveinfer.frame_resolution}' + ext)
@@ -38,10 +48,11 @@ def main(liveinfer: LiveInfer):
             ffmpeg_once(src_video_path, ffmpeg_video_path, fps=liveinfer.frame_fps, resolution=liveinfer.frame_resolution)
             logger.warning(f'{src_video_path} -> {ffmpeg_video_path}, {liveinfer.frame_fps} FPS, {liveinfer.frame_resolution} Resolution')
 
-        new_ffmpeg_video_path = ffmpeg_video_path.replace(ext,f"_concat{ext}")
-        if not os.path.exists(new_ffmpeg_video_path):
-            duplicate_video(ffmpeg_video_path, new_ffmpeg_video_path)
-        ffmpeg_video_path = new_ffmpeg_video_path
+        if do_duplicate_ans == "y":
+            new_ffmpeg_video_path = ffmpeg_video_path.replace(ext,f"_concat{ext}")
+            if not os.path.exists(new_ffmpeg_video_path):
+                duplicate_video(ffmpeg_video_path, new_ffmpeg_video_path)
+            ffmpeg_video_path = new_ffmpeg_video_path
 
         liveinfer.load_video(ffmpeg_video_path)
         num_video_frames = liveinfer.num_video_frames
