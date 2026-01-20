@@ -12,11 +12,17 @@ class LiveTrainingArguments(TrainingArguments):
     eval_datasets: list[str] = None
     videos_pt_root_dir: str | None = None #Mine
     annotations_root_dir: str | None = None #Mine
-    shiftViolenceStart_perc: float = 0.3 #Mine
+    shiftViolenceStart_perc: float = 0.0 #Mine
     summarize_at_end: bool = False #Mine
     shuffleDataset: bool = True #Mine
-    useRandFps: bool = True #Mine
+    useRandFps: bool = False #Mine
     boundary_learnFalse: bool = True #Mine
+    useDynamic_randFps: bool = True #Mine
+    # dynamic_randFps_possibleValues: list[int] = field(default_factory=lambda: [1,2,3,4,5,6,7,8]) #Mine - must be factory like this because of shared instances! currently available from 1 up to 8
+    dynamic_randFps_possibleValues_start: int = 1 #mine
+    dynamic_randFps_possibleValues_end: int = 6 #mine
+    shiftViolenceStart_time: float = 3.0 #Mine
+    fps_placeholder: str = "<placeholderFps>" #Mine
     stream_loss_weight: float = 1.0
     llm_pretrained: str = 'meta-llama/Meta-Llama-3-8B-Instruct'
     vision_pretrained: str = 'google/siglip-large-patch16-384'

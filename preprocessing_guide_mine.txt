@@ -1,4 +1,5 @@
-conda activate videollmonline fine tune ...
+conda activate videoLLM-online-Gradio-clone-ft
+
 /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola
 
 1. sample frames to video mp4  ---- 45 mins--
@@ -7,8 +8,11 @@ python ffmpeg_mine_parallel_randFps.py --out_videos_dir /netscratch/zeidan/mola_
 ffmpeg_mine_parallel.py
 ffmpeg_mine.py
 
+python ffmpeg_mine_parallel.py --out_videos_dir /netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_1fps --fps 1
+
 if use parallel enter - stty echo - after it to get back typing as it stops\
 
+IMPORTANT: the frames root path used is hardcoded to "". this the folde where each video's segments are combined together for consistency with segment annotations.
 
 
 2. encode 5 mins

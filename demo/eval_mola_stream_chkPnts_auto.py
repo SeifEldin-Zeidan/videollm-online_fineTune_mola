@@ -28,10 +28,13 @@ flipRng = random.Random(seed)
 
 def main(liveinfer: LiveInfer, dataset_annos, pt_root_path, results_path):
 
-
+    
+    print("="*5)
+    print(f"Running Eval with liveinfer frame fps: {liveinfer.frame_fps}!")
+    print("="*5)
     results_json_list = []
     for videoName, videoAnno in tqdm.tqdm(dataset_annos.items()):
-        print(f"Processing video: {videoName}")
+        print(f"Processing video: {videoName} with liveinfer.frame_fps = {liveinfer.frame_fps}")
         # sample_video_path = os.path.join(videos_root_path, videoName)
         sample_pt_path = os.path.join(pt_root_path, f"{videoName}.pt")
 
@@ -149,7 +152,7 @@ if __name__ == '__main__': #run with 2 fps annotations
     pt_root_path_def = "/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_1+3x3_google--siglip-large-patch16-384"
     results_root_path_def = "/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/demo/eval_mola_stream_results"
     
-    violence_query_def = "Analyze the given surveilance video and respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present."
+    violence_query_def = "Analyze the given surveillance video and respond only when you detect an instance of violence in the streaming video, and respond with: 'Violence Detected!'. Do not respond if no violence is present."
     user_summary_query_def = "Based on the preceding video frames, determine whether any violent behavior is present. Respond in exactly the following structure describing what you have seen. Violence Detected: [Yes/No]\nDescription: [Description of the actions in the video]\nAttacker: [Whether the left or right passenger is doing the violence, if any; otherwise 'None']\nCategory: [Interaction type]."
     frame_fps_def = 2
     max_shiftViolenceStart_time_def = 3
@@ -222,6 +225,7 @@ if __name__ == '__main__': #run with 2 fps annotations
 
                 liveinfer = LiveInfer()
                 liveinfer.violence_query = violence_query 
+                liveinfer.frame_fps = frame_fps
                 
                 sys.argv = old_argv
 

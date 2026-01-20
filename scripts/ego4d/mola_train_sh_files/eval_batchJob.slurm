@@ -1,21 +1,21 @@
 #!/bin/bash
 
-#SBATCH --job-name=eval_t_27
+#SBATCH --job-name=eval_t_31-t_32
 #SBATCH --partition=H200-AV,H200,H200-PCI
 #SBATCH --gpus=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=32G 
+#SBATCH --mem=64G
 
-#SBATCH --time=0-04:00
+#SBATCH --time=1-00:00
 
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=seifeldin.zeidan@dfki.de
 
-#SBATCH --output=/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/batchEval_logs/t_27/t_27_%x_%j.out
-#SBATCH --error=/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/batchEval_logs/t_27/t_27_%x_%j.err
+#SBATCH --output=/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/batchEval_logs/t_31-t_32/t_31-t_32_%x_%j.out
+#SBATCH --error=/netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/batchEval_logs/t_31-t_32/t_31-t_32_%x_%j.err
 
 
-mkdir -p /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/batchTrain_logs/t_27
+mkdir -p /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/batchEval_logs/t_31-t_32
 
 source /netscratch/zeidan/miniconda3/bin/activate 
 
@@ -27,7 +27,16 @@ cd /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola
 
 
 # bash scripts/ego4d/mola_train_sh_files/live1+_mola_t27_rand_vShiftPerc_summary.sh
-python -m demo.eval_mola_stream_chkPnts_auto --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_27
+python -m demo.eval_mola_stream_chkPnts_auto \
+    --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_31 \
+    --pt_root_path "/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_4fps_1+3x3_google--siglip-large-patch16-384" \
+    --frame_fps 4 &
 
+python -m demo.eval_mola_stream_chkPnts_auto \
+    --resume_from_checkpoint /netscratch/zeidan/finetune_videoLLM_online/videollm-online_fineTune_mola/outputs/mola_live1+/train_32 \
+    --pt_root_path "/netscratch/zeidan/mola_segments_combined_ftVLLMOnline/videos_sampled_4fps_1+3x3_google--siglip-large-patch16-384" \
+    --frame_fps 4 &
+
+wait
 
 
