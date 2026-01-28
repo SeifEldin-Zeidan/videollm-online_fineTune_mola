@@ -338,8 +338,8 @@ if __name__ == "__main__":
     bestAcc = 0
     best_chk = None
     best_chk_metrics = None
-    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_35"
-    val = True  #True for val, False for test
+    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_incNvSegment/chk_132"
+    val = False  #True for val, False for test
     count_total = 317
     count_lower_than_total = []
     metrics_chkPnt = []
@@ -348,8 +348,12 @@ if __name__ == "__main__":
         # files.sort(key=lambda f: int(f.split("_")[1].split(".")[0]))
         for filename in files:
             if filename.endswith(".jsonl"):
-                # if filename == "test_results_4fps.jsonl":
+                # if filename != "test_results_2fps.json.jsonl":
                 #     continue
+
+                if "0." in filename:
+                    continue
+
                 if "converted" in filename:
                     continue
                 if val and "val" not in filename:
@@ -395,7 +399,7 @@ if __name__ == "__main__":
 
     # print(metrics_chkPnt)
     if len(metrics_chkPnt) > 1 and val:
-        plot_accuracies_by_checkpoint(metrics_chkPnt, anno_path_root)
+        plot_accuracies_by_checkpoint(metrics_chkPnt, anno_path_root, filename="eval_set_accuracies_by_checkpoint.png")
     print("\n" * 2)
     print("count_lower_than_total:")
     print(len(count_lower_than_total))

@@ -26,7 +26,7 @@ seed = 42
 flipRng = random.Random(seed)
 
 
-def main(liveinfer: LiveInfer, dataset_annos, pt_root_path, results_path):
+def main(liveinfer: LiveInfer, dataset_annos, pt_root_path, results_path, doFlip=True):
 
     
     print("="*5)
@@ -38,10 +38,11 @@ def main(liveinfer: LiveInfer, dataset_annos, pt_root_path, results_path):
         # sample_video_path = os.path.join(videos_root_path, videoName)
         sample_pt_path = os.path.join(pt_root_path, f"{videoName}.pt")
 
-        flip = flipRng.choice([True, False])
-        if flip:
-            sample_pt_path = sample_pt_path.replace("1+3x3", "flipped_1+3x3")
-            print(f"FLIPPED!, Path = {sample_pt_path}")
+        if doFlip:
+            flip = flipRng.choice([True, False])
+            if flip:
+                sample_pt_path = sample_pt_path.replace("1+3x3", "flipped_1+3x3")
+                print(f"FLIPPED!, Path = {sample_pt_path}")
 
 
 
@@ -167,6 +168,11 @@ if __name__ == '__main__': #run with 2 fps annotations
     parser.add_argument("--user_summary_query", type=str, required=False, default=user_summary_query_def)
     parser.add_argument("--frame_fps", type=int, required=False, default=frame_fps_def)
     parser.add_argument("--max_shiftViolenceStart_time", type=int, required=False, default=max_shiftViolenceStart_time_def)
+    parser.add_argument("--min_chkPnt", type=int, required=False, default=0)
+    parser.add_argument("--max_chkPnt", type=float, required=False, default=float('inf'))
+    parser.add_argument("--results_fileName", type=str, required=False, default=None)
+    parser.add_argument("--skip_flip", action="store_false", required=False, default=True)
+    parser.add_argument("--thresh", type=float, required=False, default=0.725)
     # parser.add_argument("--chk_root", type=str, required=True, default=max_shiftViolenceStart_time_def)
 
     # args = parser.parse_args()
@@ -179,9 +185,12 @@ if __name__ == '__main__': #run with 2 fps annotations
     user_summary_query = script_args.user_summary_query
     frame_fps = script_args.frame_fps
     max_shiftViolenceStart_time = script_args.max_shiftViolenceStart_time
+    thresh = script_args.thresh
     # chk_num = script_args.chk_num
     # train_num = script_args.train_num
 
+    if not script_args.skip_flip:
+        print("NOT FLIPPING!!")
 
 
 
@@ -201,6 +210,12 @@ if __name__ == '__main__': #run with 2 fps annotations
         if dir.is_dir():
             if "checkpoint" in dir.name:
                 chk_num = dir.name.split("-")[-1]
+                if int(chk_num) < script_args.min_chkPnt:
+                    print(f"Skipping checkpoint {chk_num} as it's less than min_chkPnt {script_args.min_chkPnt}!")
+                    continue
+                if int(chk_num) > script_args.max_chkPnt:
+                    print(f"Skipping checkpoint {chk_num} as it's greater than max_chkPnt {script_args.max_chkPnt}!")
+                    continue
                 train_num = dir.parent.name.split("_")[-1]
 
                 print(f"Running Eval for train_num = {train_num} --- checkpoint = {chk_num}!!")
@@ -212,9 +227,13 @@ if __name__ == '__main__': #run with 2 fps annotations
                 os.makedirs(results_root_path, exist_ok=True)
 
                 annotype = anno_path.split("_")[-1].split(".")[0]
-                results_path = os.path.join(results_root_path, f"{annotype}_results.jsonl")
-                
-            
+
+                if script_args.results_fileName:
+                    if not script_args.results_fileName.endswith(".jsonl"):
+                        script_args.results_fileName += ".jsonl"
+                    results_path = os.path.join(results_root_path, f"{script_args.results_fileName}")
+                else:
+                    results_path = os.path.join(results_root_path, f"{annotype}_results.jsonl")
 
 
                 old_argv = sys.argv
@@ -226,13 +245,21 @@ if __name__ == '__main__': #run with 2 fps annotations
                 liveinfer = LiveInfer()
                 liveinfer.violence_query = violence_query 
                 liveinfer.frame_fps = frame_fps
+
+                # set threshold
+                liveinfer.frame_token_interval_threshold = thresh
+                print("="*10)
+                if liveinfer.frame_token_interval_threshold == 0.725:
+                    print("Using DEFAULT threshold 0.725")
+                print(f"Set liveinfer.frame_token_interval_threshold = {liveinfer.frame_token_interval_threshold}")
+                print("="*10)
                 
                 sys.argv = old_argv
 
                 try:
                     dataset_annos = loadAnnotations(anno_path, frame_fps, max_shiftViolenceStart_time)
                     
-                    results_json_list = main(liveinfer, dataset_annos, pt_root_path=pt_root_path, results_path=results_path)
+                    results_json_list = main(liveinfer, dataset_annos, pt_root_path=pt_root_path, results_path=results_path, doFlip=script_args.skip_flip)
                 except Exception as e:
                     print(f"Eval on checkpoint {chk_num} failed!!!")
                     print(f"Exception: {e}")

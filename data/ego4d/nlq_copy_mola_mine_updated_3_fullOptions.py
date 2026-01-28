@@ -227,6 +227,8 @@ class NLQ_MOLA(StreamMixIn):
                     remove_start_numFrames = self.random_start_shift(nvSegmentLen = numFrames_sampled, isViolentVideo=isViolentVideo)
             else:
                 remove_start_numFrames = 0
+            
+            print(f"\nVideo: {annotation['videoName']}, isViolentVideo = {isViolentVideo}, remove_start_numFrames = {remove_start_numFrames}")
 
             if annotation["numFrames_violent_segment"] > 0: #Violent video
 
@@ -239,6 +241,7 @@ class NLQ_MOLA(StreamMixIn):
                 else:
                     shiftViolenceStart = 0
 
+                print(f"\nshiftViolenceStart num frames = {shiftViolenceStart} for video {annotation['videoName']}")
                 # shiftViolenceStart = self.get_shiftViolenceStart(numFrames_restOfVideo, frame_fps)
 
                 # print("\n")
@@ -255,7 +258,7 @@ class NLQ_MOLA(StreamMixIn):
                 
                 if boundary_learnFalse:
                     # print(f"shiftViolenceStart = {shiftViolenceStart}")
-                    print("Using boundary_learnFalse!!!")
+                    # print("Using boundary_learnFalse!!!")
                     if shiftViolenceStart > 0:
                         conversation_cont[0]["learn"] = conversation_cont[0]["num_frames"] - shiftViolenceStart
                         conversation_cont[0]["force_addPred"] = True

@@ -22,6 +22,7 @@ class LiveTrainingArguments(TrainingArguments):
     dynamic_randFps_possibleValues_start: int = 1 #mine
     dynamic_randFps_possibleValues_end: int = 6 #mine
     shiftViolenceStart_time: float = 3.0 #Mine
+    incNvSegment: bool = False #Mine
     fps_placeholder: str = "<placeholderFps>" #Mine
     stream_loss_weight: float = 1.0
     llm_pretrained: str = 'meta-llama/Meta-Llama-3-8B-Instruct'
