@@ -14,7 +14,9 @@ find "$CKPT_ROOT" -maxdepth 1 -type d -name "checkpoint-*" | sort -V | while rea
   
   fps=8
   echo "Using FPS: $fps"
-  typeSet="test"
+  # typeSet="test"
+  typeSet="val"
+  # typeSet="yt_final"
   echo "Running $typeSet set"
 
   # Sanity check: ensure it's numeric
@@ -24,7 +26,7 @@ find "$CKPT_ROOT" -maxdepth 1 -type d -name "checkpoint-*" | sort -V | while rea
     echo "Submitting checkpoint $ckpt_id (range: $LOWER_THRESH–$((UPPER_THRESH-1)))"
     # sbatch --export=ALL,CKPT_PATH="$ckpt",FPS="$fps" "$SBATCH_FILE"
     sbatch \
-    --job-name="incNvSeg_fps${fps}_ckpt${ckpt_id}_probAnalyze" \
+    --job-name="incNvSeg_fps${fps}_ckpt${ckpt_id}_probAnalyze_${typeSet}" \
     --export=ALL,CKPNT="$ckpt_id",FPS="$fps",TYPESET="$typeSet" \
     "$SBATCH_FILE"
 

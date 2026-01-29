@@ -338,8 +338,8 @@ if __name__ == "__main__":
     bestAcc = 0
     best_chk = None
     best_chk_metrics = None
-    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_incNvSegment/chk_132"
-    val = False  #True for val, False for test
+    anno_path_root = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/train_32LearnB/chk_112"
+    val = True  #True for val, False for test
     count_total = 317
     count_lower_than_total = []
     metrics_chkPnt = []

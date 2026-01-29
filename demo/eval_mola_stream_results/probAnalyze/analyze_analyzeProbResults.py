@@ -254,9 +254,9 @@ if __name__ == "__main__":
     chkPoint = "train_incNvSegment/chk_132"
     # chkPoint = "train_38/chk_84"
 
-    setType = "evalSet"
+    # setType = "evalSet"
     # setType = "test"
-    # setType = "yt_final"
+    setType = "yt_final"
 
     annotation_file = f"/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/{chkPoint}/{setType}_results_4fps_thresh_0_analyzeProb.jsonl"
 
@@ -264,6 +264,9 @@ if __name__ == "__main__":
     # annotation_file = f"/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/{chkPoint}/{setType}_results_4fps_thresh_0_analyzeProb.jsonl"
 
     # annotation_file = f"/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/{chkPoint}/{setType}_results_4fps_thresh_0_analyzeProb.jsonl"
+
+    annotation_file = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/probAnalyze/8fps/train_incNvSegment/chk_165/yt_final_results_8fps_thresh_0_analyzeProb.json.jsonl"
+    # annotation_file = "/home/zeidan/Masters/videollm-online_fineTune_mola/demo/eval_mola_stream_results/probAnalyze/8fps/train_incNvSegment/chk_165/test_results_8fps_thresh_0_analyzeProb.json.jsonl"
 
 
 
@@ -292,9 +295,9 @@ if __name__ == "__main__":
 
 
     for numFrames_decide in range(1,5):
-        for decide_avg_thresh in np.arange(0.1,1.0,0.05):
+        for decide_avg_thresh in np.arange(0.4,1.0,0.05):
             numFrames_decide = 1
-            # decide_avg_thresh = 0.725
+            decide_avg_thresh = 0.725
 
             metrics = getMetrics_numFrames_decide(extractedSamples_list=extractedSamples_list, numFrames_decide=numFrames_decide, decide_avg_thresh=decide_avg_thresh)
             hyperparam_res = {
@@ -321,7 +324,7 @@ if __name__ == "__main__":
     print(bestMetrics)
     print("="*5)
 
-    print(saved_hyperParam_results)
+    # print(saved_hyperParam_results)
 
 
     if saveHeatmaps:
